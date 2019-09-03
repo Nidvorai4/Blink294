@@ -1,0 +1,29 @@
+HI HUI HUI
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# rebase in progress; onto 2615d11
+# You are currently rebasing branch 'master' on '2615d11'.
+#
+# Changes to be committed:
+#	modified:   Blink294.sln
+#	new file:   CodeDB/Blink294-Debug-Win32/GlobalCache/002/DerivedRelations.dat
+#	new file:   CodeDB/Blink294-Debug-Win32/GlobalCache/002/Files.idx
+#	new file:   CodeDB/Blink294-Debug-Win32/GlobalCache/002/GlobalTrees.dat
+#	new file:   CodeDB/Blink294-Debug-Win32/GlobalCache/002/MacroRefs.dat
+#	new file:   CodeDB/Blink294-Debug-Win32/GlobalCache/002/Names.idx
+#	new file:   CodeDB/Blink294-Debug-Win32/GlobalCache/002/SymbolDefs.dat
+#	new file:   CodeDB/Blink294-Debug-Win32/GlobalCache/002/SymbolRefs.dat
+#	new file:   CodeDB/Blink294-Debug-Win32/WorkWithOLED.npa00
+#	modified:   CodeDB/Blink294-Debug-Win32/codedb.lck
+#	new file:   CodeDB/Blink294-Debug-Win32/stm32f1xx_hal_msp.rdb
+#	new file:   CodeDB/Blink294-Debug-Win32/tmp00000004.npa00
+#	new file:   CodeDB/Blink294-Debug-Win32/tmp00000005.npa00
+#	modified:   Makefile
+#	modified:   Src/i2c.c
+#	modified:   Src/main.c
+#	modified:   Src/spi.c
+#	modified:   VisualGDBCache/Blink294-Debug/MemoryUtilizationReport.xml
+#	modified:   WorkWithOLED.c
+#	modified:   WorkWithOLED.h
+#

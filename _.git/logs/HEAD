@@ -1,0 +1,43 @@
+0000000000000000000000000000000000000000 67fcc6cedf6fdac05692f00d2633d18979f53cc1 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567354246 +0300	commit (initial): Добавьте GITIGNORE- и GITATTRIBUTES-файлы.
+67fcc6cedf6fdac05692f00d2633d18979f53cc1 448c6496142cbb152f15da5c55a5fb5f842a7200 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567354256 +0300	commit: Добавьте файлы проекта.
+448c6496142cbb152f15da5c55a5fb5f842a7200 06a8c4f71a4bf09cea66f917b74102341f8b5032 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567354504 +0300	commit: работает дисплей
+06a8c4f71a4bf09cea66f917b74102341f8b5032 e1502ed4495f28cfe6f92852b5bc4aab5c1202cb Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567358671 +0300	commit: работает Энкодер
+e1502ed4495f28cfe6f92852b5bc4aab5c1202cb 2615d11af8712cdc1a426ccbf763fed3ffb44af5 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567447469 +0300	commit: депортировал код работы с дисплеем
+2615d11af8712cdc1a426ccbf763fed3ffb44af5 d8ba9a9883e39cd5310e038edfa402444a625595 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567469649 +0300	commit (amend): депортировал код работы с дисплеем
+d8ba9a9883e39cd5310e038edfa402444a625595 d8ba9a9883e39cd5310e038edfa402444a625595 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567469766 +0300	checkout: moving from master to косячок
+d8ba9a9883e39cd5310e038edfa402444a625595 d8ba9a9883e39cd5310e038edfa402444a625595 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567470141 +0300	reset: moving to HEAD
+d8ba9a9883e39cd5310e038edfa402444a625595 d8ba9a9883e39cd5310e038edfa402444a625595 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567470799 +0300	checkout: moving from косячок to d8ba9a9883e39cd5310e038edfa402444a625595
+d8ba9a9883e39cd5310e038edfa402444a625595 e1502ed4495f28cfe6f92852b5bc4aab5c1202cb Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567471790 +0300	checkout: moving from d8ba9a9883e39cd5310e038edfa402444a625595 to e1502ed4495f28cfe6f92852b5bc4aab5c1202cb
+e1502ed4495f28cfe6f92852b5bc4aab5c1202cb 3aa3a7f516032c81b0e7a5d0230640d66082f8ae Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567472691 +0300	commit: почти пофиксил двоеточия в после эенкодера
+3aa3a7f516032c81b0e7a5d0230640d66082f8ae 9fc6bb61323c03ba69226669588d74c9fcf10250 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567473500 +0300	checkout: moving from 3aa3a7f516032c81b0e7a5d0230640d66082f8ae to 9fc6bb61323c03ba69226669588d74c9fcf10250
+9fc6bb61323c03ba69226669588d74c9fcf10250 0e16073532a96070ee4ccde7157fade82a61d8fb Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567476306 +0300	commit: всё починил после двоеточиц ебучих
+0e16073532a96070ee4ccde7157fade82a61d8fb d8ba9a9883e39cd5310e038edfa402444a625595 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567476633 +0300	checkout: moving from 0e16073532a96070ee4ccde7157fade82a61d8fb to master
+d8ba9a9883e39cd5310e038edfa402444a625595 d8ba9a9883e39cd5310e038edfa402444a625595 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567476681 +0300	checkout: moving from master to косячок
+d8ba9a9883e39cd5310e038edfa402444a625595 d8ba9a9883e39cd5310e038edfa402444a625595 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567476704 +0300	checkout: moving from косячок to master
+d8ba9a9883e39cd5310e038edfa402444a625595 ab075cc1e955c345a7ed33fc8e00fef72367e9de Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567477888 +0300	commit: починил всю хуйню после ссаных палок
+ab075cc1e955c345a7ed33fc8e00fef72367e9de fbfa2fe664f9010cb1ebe0d52258daf8d8276566 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567478260 +0300	commit: допилил красивишный принт регистра
+fbfa2fe664f9010cb1ebe0d52258daf8d8276566 2615d11af8712cdc1a426ccbf763fed3ffb44af5 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567478278 +0300	pull --verbose --progress --no-edit --no-stat --recurse-submodules=no origin: checkout 2615d11af8712cdc1a426ccbf763fed3ffb44af5
+2615d11af8712cdc1a426ccbf763fed3ffb44af5 fbfa2fe664f9010cb1ebe0d52258daf8d8276566 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567479241 +0300	checkout: moving from 2615d11af8712cdc1a426ccbf763fed3ffb44af5 to fbfa2fe664f9010cb1ebe0d52258daf8d8276566
+fbfa2fe664f9010cb1ebe0d52258daf8d8276566 fbfa2fe664f9010cb1ebe0d52258daf8d8276566 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567479463 +0300	checkout: moving from fbfa2fe664f9010cb1ebe0d52258daf8d8276566 to newPALKAbranch
+fbfa2fe664f9010cb1ebe0d52258daf8d8276566 fbfa2fe664f9010cb1ebe0d52258daf8d8276566 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480094 +0300	checkout: moving from newPALKAbranch to master
+fbfa2fe664f9010cb1ebe0d52258daf8d8276566 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480386 +0300	rebase: депортировал код работы с дисплеем
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480396 +0300	rebase: updating HEAD
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480410 +0300	rebase: updating HEAD
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480428 +0300	rebase: updating HEAD
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480434 +0300	rebase: updating HEAD
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480440 +0300	rebase: updating HEAD
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480474 +0300	rebase: updating HEAD
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480480 +0300	rebase: updating HEAD
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480499 +0300	rebase: updating HEAD
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 1422f2ec26e60b47aae700d8d3f8ce089ea8750e Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480505 +0300	rebase: aborting
+1422f2ec26e60b47aae700d8d3f8ce089ea8750e 2615d11af8712cdc1a426ccbf763fed3ffb44af5 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567480823 +0300	reset: moving to origin/master
+2615d11af8712cdc1a426ccbf763fed3ffb44af5 9d7871de2930b2d73faeed4f817f463f706d36b1 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567481511 +0300	commit: HUI
+9d7871de2930b2d73faeed4f817f463f706d36b1 9d7871de2930b2d73faeed4f817f463f706d36b1 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567481572 +0300	reset: moving to HEAD
+9d7871de2930b2d73faeed4f817f463f706d36b1 fbfa2fe664f9010cb1ebe0d52258daf8d8276566 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567481579 +0300	checkout: moving from master to newPALKAbranch
+fbfa2fe664f9010cb1ebe0d52258daf8d8276566 2f3c1c252f2db759ac35d66dbf83f5e2144e7140 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567481630 +0300	merge master: Merge made by the 'ours' strategy.
+2f3c1c252f2db759ac35d66dbf83f5e2144e7140 9d7871de2930b2d73faeed4f817f463f706d36b1 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567481668 +0300	checkout: moving from newPALKAbranch to master
+9d7871de2930b2d73faeed4f817f463f706d36b1 2f3c1c252f2db759ac35d66dbf83f5e2144e7140 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567481707 +0300	merge newPALKAbranch: Fast-forward
+2f3c1c252f2db759ac35d66dbf83f5e2144e7140 2615d11af8712cdc1a426ccbf763fed3ffb44af5 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567481753 +0300	pull: checkout 2615d11af8712cdc1a426ccbf763fed3ffb44af5
+2615d11af8712cdc1a426ccbf763fed3ffb44af5 ad277dce0db295b4bf1e5ad319aa163bdf77fc2f Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567482696 +0300	commit: HI HUI HUI
+ad277dce0db295b4bf1e5ad319aa163bdf77fc2f 2f3c1c252f2db759ac35d66dbf83f5e2144e7140 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567483006 +0300	rebase: updating HEAD
+2f3c1c252f2db759ac35d66dbf83f5e2144e7140 2f3c1c252f2db759ac35d66dbf83f5e2144e7140 Nidvorai4 <53832119+Nidvorai4@users.noreply.github.com> 1567483065 +0300	checkout: moving from master to newPALKAbranch
