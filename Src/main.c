@@ -272,7 +272,15 @@ int main(void)
 	  //LCD_String("1");
 	  //LCD_String("2");
 	  //LCD_String("34");
-	   LCD_PrintReg(GPIOC->ODR, "ODR");
+	  // LCD_PrintReg(GPIOC->ODR, "ODR");
+	  PWR->CR |= PWR_CR_PVDE | PWR_CR_PLS_2V2;
+	  //LCD_PrintReg(PWR->CR, "PWR->CR");
+	  LCD_PrintReg(PWR->CSR, "PWR->CSR");
+	 // int OFR=
+	  int OF = PWR->CSR & 1 << 2;
+	  LCD_Num_To_Str(OF, 1);
+	  
+	  
  	  HAL_Delay(500);
 	  
 	  //LCD_GoTo(3, 8);
