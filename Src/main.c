@@ -29,6 +29,7 @@
 //#include <iostream>
 #include <string.h>
 #include "WorkWithOLED.h"
+#include "./Modules/SD/SD.h"
 
 /* USER CODE END Includes */
 
@@ -239,6 +240,8 @@ int main(void)
 	//	pvdo
 	//}
 	
+	
+	sd_ini();
 	
 	
   /* USER CODE END 2 */
