@@ -51,7 +51,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+volatile uint8_t sect[512]; // для чтения с СД
 
 /* USER CODE END PV */
 
@@ -240,8 +240,7 @@ int main(void)
 	//	pvdo
 	//}
 	
-	
-	
+
 	
 	
   /* USER CODE END 2 */
@@ -265,9 +264,9 @@ int main(void)
 	  
 	  //LCD_Num_To_Str(EncCount ,3);
 	  //if(gg > 169)gg = 1;
-	 
+	  LD_OFF;
 	  HAL_Delay(500);
-	  HAL_GPIO_TogglePin(HUED_GPIO_Port, HUED_Pin); 
+	  //HAL_GPIO_TogglePin(HUED_GPIO_Port, HUED_Pin); 
 	  
 	  // unsigned int rrr = GPIOC->ODR;
 	  // HexToChar(rrr);
@@ -285,13 +284,23 @@ int main(void)
 	  
 	  
  	  HAL_Delay(500);
-	  sd_ini();
-	  //LCD_GoTo(3, 8);
-	  //LCD_String("34");
+	  
+	  LCD_GoTo(3, 8);
+	  LCD_Num_To_Str( EncCount++,3);
 	  
 	  //odr
 	  
+	  if(0 && sd_ini() == 0)
+	  {
 		  
+		  char buffer1[512] = "Go fuck yourself fucking stupid duck. Fuck you Go fuck yourself fucking stupid duck. Fuck youGo fuck yourself fucking stupid duck. Fuck youGo fuck yourself fucking stupid duck. Fuck you";
+		  SD_Write_Block((uint8_t*)buffer1, 0x0400);
+		  SD_Read_Block(sect, 0x0400);    //Считаем блок из буфера
+		  //SD_Read_Block(sect, 0x6);
+		  if(sect[5]!=0)
+		   LCD_GoTo(3, 8);
+	  }
+	  
 		  
 	  //PWR_CSR_PVDO;
 	  

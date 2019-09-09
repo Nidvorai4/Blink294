@@ -28,6 +28,8 @@
 #define LD_OFF HAL_GPIO_WritePin(HUED_GPIO_Port,  HUED_Pin, GPIO_PIN_SET); //green
 void SPI_Release(void);
 uint8_t sd_ini(void);
+uint8_t SD_Read_Block(uint8_t *buff, uint32_t lba);
+uint8_t SD_Write_Block(uint8_t *buff, uint32_t lba);
 
 //--------------------------------------------------
 /* Card type flags (CardType) */
