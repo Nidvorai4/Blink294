@@ -20,8 +20,10 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "fatfs.h"
 #include "i2c.h"
 #include "spi.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -135,6 +137,8 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_SPI1_Init();
+  MX_USART3_UART_Init();
+  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 	HAL_Delay(100);
 	LCD_init();
@@ -285,6 +289,8 @@ int main(void)
 	  
  	  HAL_Delay(500);
 	  
+	  
+	  
 	  LCD_GoTo(3, 8);
 	  LCD_Num_To_Str( EncCount++,3);
 	  
@@ -301,6 +307,8 @@ int main(void)
 		   LCD_GoTo(3, 8);
 	  }
 	  
+	  
+	  HAL_UART_Transmit(&huart3, (uint8_t*)"USER_initializern\r\n", 19, 0x1000);
 		  
 	  //PWR_CSR_PVDO;
 	  

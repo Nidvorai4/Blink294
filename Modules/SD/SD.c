@@ -1,6 +1,5 @@
 #include "./Modules/SD/SD.h"
 //-----------------------------------------------
-extern SPI_HandleTypeDef hspi1;
 sd_info_ptr sdinfo;
 char str1[60] = { 0 };
 //-----------------------------------------------
