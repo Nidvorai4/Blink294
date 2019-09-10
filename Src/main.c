@@ -53,8 +53,16 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile uint8_t sect[512]; // для чтения с СД
-
+//для работы с СД ->
+						volatile uint8_t sect[512]; // для чтения с СД
+						extern char str1[60];
+						uint32_t byteswritten, bytesread;
+						uint8_t result;
+						extern char USER_Path[4]; /* logical drive path */
+						FATFS SDFatFs;
+						FATFS *fs;
+						FIL MyFile;
+// <- для работы с СД
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -91,7 +99,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	} 
 }
 
+void OtladkaPrint(char* ChtoPisat, uint8_t NewLine)
+{
+	//HAL_UART_Transmit(&huart3, (uint8_t*)("\n\r...........Error\r\n"), 20, 0x1000);
 
+	HAL_UART_Transmit(&huart3, (uint8_t*)ChtoPisat, strlen(ChtoPisat), 0x1000);
+	if (NewLine)HAL_UART_Transmit(&huart3, "\r\n", 2, 0x1000);
+	
+	//HAL_UART_Transmit(&huart3, (uint8_t*)("\n\r...........Error\r\n"), 20, 0x1000);
+	
+}
 /* string to_binary_string(unsigned int n)
 {
 	string result;
@@ -102,6 +119,42 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	} while (n > 0);
 	return result;
 }*/
+
+
+
+FRESULT ReadLongFile(void)
+{
+	uint16_t i = 0, i1 = 0;
+	uint32_t ind = 0;
+	uint32_t f_size = MyFile.fsize;
+	sprintf(str1, "fsize: %lu\r\n", (unsigned long)f_size);
+	HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
+	ind = 0;
+	do
+	{
+		if (f_size < 512)
+		{
+			i1 = f_size;
+		}
+		else
+		{
+			i1 = 512;
+		}
+		f_size -= i1;
+		f_lseek(&MyFile, ind);
+		f_read(&MyFile, sect, i1, (UINT *)&bytesread);
+		for (i = 0; i < bytesread; i++)
+		{
+			HAL_UART_Transmit(&huart3, sect + i, 1, 0x1000);
+		}
+		ind += i1;
+	}
+ while (f_size > 0);
+	HAL_UART_Transmit(&huart3, (uint8_t*)"\r\n", 2, 0x1000);
+	return FR_OK;
+
+}
+
 
 
 /* USER CODE END 0 */
@@ -243,9 +296,30 @@ int main(void)
 	//{
 	//	pvdo
 	//}
-	
 
+	//HAL_UART_Transmit(&huart3, (uint8_t*)("################"), 16, 0x1000);
+	OtladkaPrint("########################",1);
 	
+	
+disk_initialize(SDFatFs.drv);
+	//read
+
+if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
+	{
+		Error_Handler();
+	}
+	else
+	{
+		if (f_open(&MyFile, "hui.txt", FA_READ) != FR_OK)
+		{
+			Error_Handler();
+		}
+		else
+		{
+			ReadLongFile();
+			f_close(&MyFile);
+		}
+	}
 	
   /* USER CODE END 2 */
 
@@ -308,7 +382,7 @@ int main(void)
 	  }
 	  
 	  
-	  HAL_UART_Transmit(&huart3, (uint8_t*)"USER_initializern\r\n", 19, 0x1000);
+	  //HAL_UART_Transmit(&huart3, (uint8_t*)"USER_initializern\r\n", 19, 0x1000);
 		  
 	  //PWR_CSR_PVDO;
 	  
@@ -370,7 +444,10 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+	//HAL_UART_Transmit(&huart3, (uint8_t*)("\n\r...........Error"), 18, 0x1000);
+	OtladkaPrint("Error.......",0);
+	OtladkaPrint(result,1);
+	
   /* USER CODE END Error_Handler_Debug */
 }
 

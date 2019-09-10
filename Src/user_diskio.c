@@ -36,11 +36,16 @@
 /* Includes ------------------------------------------------------------------*/
 #include <string.h>
 #include "ff_gen_drv.h"
+#include ".\Modules/SD/SD.h"
+
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 
 /* Private variables ---------------------------------------------------------*/
+extern UART_HandleTypeDef huart3;
+extern char str1[60];
+extern sd_info_ptr sdinfo;
 /* Disk status */
 static volatile DSTATUS Stat = STA_NOINIT;
 
@@ -82,8 +87,10 @@ DSTATUS USER_initialize (
 )
 {
   /* USER CODE BEGIN INIT */
-    Stat = STA_NOINIT;
-    return Stat;
+    //Stat = STA_NOINIT;
+	HAL_UART_Transmit(&huart3, (uint8_t*)"USER_initialize\r\n", 17, 0x1000);
+	if (sd_ini() == 0) {Stat &= ~STA_NOINIT; } //—бросим статус STA_NOINIT
+	return Stat;
   /* USER CODE END INIT */
 }
  
@@ -97,8 +104,14 @@ DSTATUS USER_status (
 )
 {
   /* USER CODE BEGIN STATUS */
-    Stat = STA_NOINIT;
-    return Stat;
+    //Stat = STA_NOINIT;
+	HAL_UART_Transmit(&huart3, (uint8_t*)"USER_status\r\n", 13, 0x1000);
+    
+	
+	if (pdrv) return STA_NOINIT;
+	
+	
+	return Stat;
   /* USER CODE END STATUS */
 }
 
@@ -118,8 +131,31 @@ DRESULT USER_read (
 )
 {
   /* USER CODE BEGIN READ */
-    return RES_OK;
-  /* USER CODE END READ */
+	HAL_UART_Transmit(&huart3, (uint8_t*)"USER_read\r\n", 11, 0x1000);
+	sprintf(str1, "sector: %lu; count: %d\r\n", sector, count);
+	HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
+    
+	
+	
+	if (pdrv || !count) return RES_PARERR;
+	if (Stat & STA_NOINIT) return RES_NOTRDY;
+	if (!(sdinfo.type & 4)) sector *= 512; /* Convert to byte address if needed */
+	if (count == 1) /* Single block read */
+	{
+		SD_Read_Block(buff, sector);  //—читаем блок в буфер
+		count = 0;
+	}
+	else /* Multiple block read */
+	{
+
+	}
+	SPI_Release();
+	return count ? RES_ERROR : RES_OK;
+
+	
+	
+	
+/* USER CODE END READ */
 }
 
 /**
@@ -140,7 +176,10 @@ DRESULT USER_write (
 { 
   /* USER CODE BEGIN WRITE */
   /* USER CODE HERE */
-    return RES_OK;
+	HAL_UART_Transmit(&huart3, (uint8_t*)"USER_write\r\n", 12, 0x1000);
+	sprintf(str1, "sector: %lu\r\n", sector);
+	HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
+	return RES_OK;
   /* USER CODE END WRITE */
 }
 #endif /* _USE_WRITE == 1 */
@@ -160,8 +199,30 @@ DRESULT USER_ioctl (
 )
 {
   /* USER CODE BEGIN IOCTL */
-    DRESULT res = RES_ERROR;
-    return res;
+	DRESULT res;// = RES_ERROR;
+	HAL_UART_Transmit(&huart3, (uint8_t*)"USER_ioctl\r\n", 12, 0x1000);
+	sprintf(str1, "cmd: %d\r\n", cmd);
+	HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
+
+	
+	
+	if (pdrv) return RES_PARERR;
+	if (Stat & STA_NOINIT) return RES_NOTRDY;
+	res = RES_ERROR;
+	switch (cmd)
+	{
+	case GET_SECTOR_SIZE : /* Get sectors on the disk (WORD) */
+		*(WORD*)buff = 512;
+		res = RES_OK;
+		break;
+	default:
+		res = RES_PARERR;
+	}
+	SPI_Release();
+
+	
+	
+	return res;
   /* USER CODE END IOCTL */
 }
 #endif /* _USE_IOCTL == 1 */

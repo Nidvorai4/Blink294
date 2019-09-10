@@ -234,9 +234,9 @@ uint8_t sd_ini(void)
 	//Сохраним значение делителя шины SPI, установим пока другой делитель и заново инициализируем шину, 
 	//чтобы уменьшить скорость, так как слишком быструю сразу карта может не понять
 	
-	//temp = hspi1.Init.BaudRatePrescaler;
-	//hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128; //156.25 kbbs
-	//HAL_SPI_Init(&hspi1);
+	temp = hspi1.Init.BaudRatePrescaler;
+	hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128; //156.25 kbbs
+	HAL_SPI_Init(&hspi1);
 	//Затем передадим несколько импульсов на ножку синхронизации SPI. По даташиту нужно не менее 74, мы передадим на всякий случай 80.
 	//Это можно сделать обычным прогоном байта по шине SPI. Причём есть ещё требование — ножка выбора должна быть поднята
 
@@ -270,8 +270,8 @@ uint8_t sd_ini(void)
 					//самый старший из них (он же тот, который прийдёт первым) является результатом формата R1. 
 					//Мы его получим сразу в возврате из функции. А остальные 4 байта мы получим отдельно.
 					for(i = 0 ; i < 4 ; i++) ocr[i] = SPI_ReceiveByte();
-					//sprintf(str1, "OCR: 0x%02X 0x%02X 0x%02X 0x%02Xrn", ocr[0], ocr[1], ocr[2], ocr[3]);
-					//HAL_UART_Transmit(&huart1, (uint8_t*)str1, strlen(str1), 0x1000);
+					sprintf(str1, "OCR: 0x%02X 0x%02X 0x%02X 0x%02X\r\n", ocr[0], ocr[1], ocr[2], ocr[3]);
+					HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
 					// Get trailing return value of R7 resp
 					if(ocr[2] == 0x01 && ocr[3] == 0xAA) // The card can work at vdd range of 2.7-3.6V
 					{
@@ -290,8 +290,8 @@ uint8_t sd_ini(void)
 						if(tmr && SD_cmd(CMD58, 0) == 0)  // Check CCS bit in the OCR
 						{ 
 							for (i = 0; i < 4; i++) ocr[i] = SPI_ReceiveByte();
-							//sprintf(str1,"OCR: 0x%02X 0x%02X 0x%02X 0x%02Xrn",ocr[0],ocr[1],ocr[2],ocr[3]);
-							//HAL_UART_Transmit(&huart1,(uint8_t*)str1,strlen(str1),0x1000);
+							sprintf(str1,"OCR: 0x%02X 0x%02X 0x%02X 0x%02X\r\n",ocr[0],ocr[1],ocr[2],ocr[3]);
+							HAL_UART_Transmit(&huart3,(uint8_t*)str1,strlen(str1),0x1000);
 							sdinfo.type = (ocr[0] & 0x40) ? CT_SD2 | CT_BLOCK : CT_SD2; // SDv2 (HC or SC)
 							LD_ON;
 						}
@@ -316,8 +316,8 @@ uint8_t sd_ini(void)
 		{
 			return 1;
 		}	
-//	sprintf(str1, "Type SD: 0x%02Xrn", sdinfo.type);
-//	HAL_UART_Transmit(&huart1, (uint8_t*)str1, strlen(str1), 0x1000);
+	sprintf(str1, "Type SD: 0x%02X\r\n", sdinfo.type);
+	HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
 	return 0;
 }
 
