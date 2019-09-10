@@ -74,7 +74,7 @@ void Error_Handler(void);
 #define EncoderDT_Pin GPIO_PIN_1
 #define EncoderDT_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
-
+//#define VyvodInfoFromKepka 1 // раскоментировать, если в консоли нужна инфа по внутрянке работы с СД
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

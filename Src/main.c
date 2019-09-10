@@ -127,8 +127,11 @@ FRESULT ReadLongFile(void)
 	uint16_t i = 0, i1 = 0;
 	uint32_t ind = 0;
 	uint32_t f_size = MyFile.fsize;
-	sprintf(str1, "fsize: %lu\r\n", (unsigned long)f_size);
-	HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
+	#ifdef VyvodInfoFromKepka
+		sprintf(str1, "fsize: %lu\r\n", (unsigned long)f_size);
+		HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
+	#endif
+	
 	ind = 0;
 	do
 	{
@@ -166,6 +169,15 @@ FRESULT ReadLongFile(void)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+// для работы с СД ->
+						FRESULT res;  //результат выполнения
+						uint8_t wtext[] = "Hello from STM32!!!";
+						FILINFO fileInfo;
+						char *fn;
+						DIR dir;
+						DWORD fre_clust, fre_sect, tot_sect;
+// <- для работы с СД 
+	
   /* USER CODE END 1 */
   
 
@@ -302,6 +314,58 @@ int main(void)
 	
 	
 disk_initialize(SDFatFs.drv);
+
+//	//read dir
+//	if(f_mount(&SDFatFs, (TCHAR const*)USER_Path, 0) != FR_OK)
+//	{
+//		Error_Handler();
+//	}
+//	else
+//	{
+//		fileInfo.lfname = (char*)sect;
+//		fileInfo.lfsize = sizeof(sect);
+//		result = f_opendir(&dir, "/");
+//		if (result == FR_OK)
+//		{
+//			f_closedir(&dir);
+//		}
+//	}	
+													/* Move to end of the file to append data */
+													//res = f_lseek(fp, f_size(fp));
+	
+													//Размонтируем:
+													//
+													//if(f_mount(NULL,USER_Path,0)==FR_OK)  FATFS_UnLinkDriver(USER_Path);  
+	
+	
+	
+	
+	//write
+
+	if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
+	{
+		Error_Handler();
+	}
+	else
+	{
+		if (f_open(&MyFile, "myHUI.txt", FA_OPEN_ALWAYS | FA_WRITE) != FR_OK)
+		{
+			Error_Handler();
+		}
+		else
+		{
+			res = f_write(&MyFile, wtext, sizeof(wtext), (void*)&byteswritten);
+			res = f_lseek(&MyFile, f_size(&MyFile));
+			res = f_write(&MyFile, "HUiCSHE\n\r", 9, (void*)&byteswritten);
+			if ((byteswritten == 0) || (res != FR_OK))
+			{
+				Error_Handler();
+			}
+			f_close(&MyFile);
+		}
+	}
+	
+	
 	//read
 
 if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
@@ -310,7 +374,7 @@ if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
 	}
 	else
 	{
-		if (f_open(&MyFile, "hui.txt", FA_READ) != FR_OK)
+		if (f_open(&MyFile, "myhui.txt", FA_READ) != FR_OK)
 		{
 			Error_Handler();
 		}
@@ -320,6 +384,10 @@ if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
 			f_close(&MyFile);
 		}
 	}
+
+	
+FATFS_UnLinkDriver(USERPath);	
+	
 	
   /* USER CODE END 2 */
 

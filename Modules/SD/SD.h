@@ -11,7 +11,10 @@
 #include <stdlib.h>
 
 #include <stdint.h>
-#include "stdio.h"
+
+#ifdef VyvodInfoFromKepka
+ #include "stdio.h"
+#endif
 
 #include "main.h"
 
@@ -33,7 +36,7 @@ void SPI_Release(void);
 uint8_t sd_ini(void);
 uint8_t SD_Read_Block(uint8_t *buff, uint32_t lba);
 uint8_t SD_Write_Block(uint8_t *buff, uint32_t lba);
-
+uint8_t SPI_wait_ready(void);
 //--------------------------------------------------
 /* Card type flags (CardType) */
 #define CT_MMC 0x01 /* MMC ver 3 */
