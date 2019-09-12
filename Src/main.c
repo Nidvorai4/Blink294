@@ -32,6 +32,8 @@
 #include <string.h>
 #include "WorkWithOLED.h"
 #include "./Modules/SD/SD.h"
+#include "./Modules/RTC/RTClock.h"
+
 
 /* USER CODE END Includes */
 
@@ -99,15 +101,20 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	} 
 }
 
-void OtladkaPrint(char* ChtoPisat, uint8_t NewLine)
-{
-	//HAL_UART_Transmit(&huart3, (uint8_t*)("\n\r...........Error\r\n"), 20, 0x1000);
 
-	HAL_UART_Transmit(&huart3, (uint8_t*)ChtoPisat, strlen(ChtoPisat), 0x1000);
-	if (NewLine)HAL_UART_Transmit(&huart3, "\r\n", 2, 0x1000);
-	
-	//HAL_UART_Transmit(&huart3, (uint8_t*)("\n\r...........Error\r\n"), 20, 0x1000);
-	
+
+
+void OtladkaPrint(uint8_t NextLine,const char* args, ...)
+{
+	char StrBuff[0xFF] = { 0 };
+	va_list ap;
+	va_start(ap, args);
+	vsnprintf(StrBuff, sizeof(StrBuff), args, ap);
+	va_end(ap);
+	if (NextLine) sprintf(StrBuff, "%s\n\r",StrBuff);
+	StrBuff[strlen(StrBuff)] = 0;
+	HAL_UART_Transmit(&huart3, (uint8_t *)StrBuff, (uint16_t)strlen(StrBuff), 100);
+
 }
 /* string to_binary_string(unsigned int n)
 {
@@ -205,16 +212,16 @@ int main(void)
   MX_USART3_UART_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
-	HAL_Delay(100);
-	LCD_init();
-	LCD_Clear();
-	
-	
-	LCD_Num_To_Str(23456789, 1);
-	LCD_Clear();
-	LCD_Num_To_Str(23456789, 5);
-	LCD_Clear();
-	LCD_Num_To_Str(23456789, 10);
+//	HAL_Delay(100);
+//	LCD_init();
+//	LCD_Clear();
+//	
+//	
+//	LCD_Num_To_Str(23456789, 1);
+//	LCD_Clear();
+//	LCD_Num_To_Str(23456789, 5);
+//	LCD_Clear();
+//	LCD_Num_To_Str(23456789, 10);
 	
 #if 0
 	//LCD_String("");
@@ -310,10 +317,10 @@ int main(void)
 	//}
 
 	//HAL_UART_Transmit(&huart3, (uint8_t*)("################"), 16, 0x1000);
-	OtladkaPrint("########################",1);
+	OtladkaPrint(1,"########################\r\n");
 	
 	
-disk_initialize(SDFatFs.drv);
+//disk_initialize(SDFatFs.drv);
 
 //	//read dir
 //	if(f_mount(&SDFatFs, (TCHAR const*)USER_Path, 0) != FR_OK)
@@ -340,53 +347,53 @@ disk_initialize(SDFatFs.drv);
 	
 	
 	
-	//write
-
-	if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
-	{
-		Error_Handler();
-	}
-	else
-	{
-		if (f_open(&MyFile, "myHUI.txt", FA_OPEN_ALWAYS | FA_WRITE) != FR_OK)
-		{
-			Error_Handler();
-		}
-		else
-		{
-			res = f_write(&MyFile, wtext, sizeof(wtext), (void*)&byteswritten);
-			res = f_lseek(&MyFile, f_size(&MyFile));
-			res = f_write(&MyFile, "HUiCSHE\n\r", 9, (void*)&byteswritten);
-			if ((byteswritten == 0) || (res != FR_OK))
-			{
-				Error_Handler();
-			}
-			f_close(&MyFile);
-		}
-	}
-	
-	
-	//read
-
-if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
-	{
-		Error_Handler();
-	}
-	else
-	{
-		if (f_open(&MyFile, "myhui.txt", FA_READ) != FR_OK)
-		{
-			Error_Handler();
-		}
-		else
-		{
-			ReadLongFile();
-			f_close(&MyFile);
-		}
-	}
-
-	
-FATFS_UnLinkDriver(USERPath);	
+//	//write
+//
+//	if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
+//	{
+//		Error_Handler();
+//	}
+//	else
+//	{
+//		if (f_open(&MyFile, "myHUI.txt", FA_OPEN_ALWAYS | FA_WRITE) != FR_OK)
+//		{
+//			Error_Handler();
+//		}
+//		else
+//		{
+//			res = f_write(&MyFile, wtext, sizeof(wtext), (void*)&byteswritten);
+//			res = f_lseek(&MyFile, f_size(&MyFile));
+//			res = f_write(&MyFile, "HUiCSHE\n\r", 9, (void*)&byteswritten);
+//			if ((byteswritten == 0) || (res != FR_OK))
+//			{
+//				Error_Handler();
+//			}
+//			f_close(&MyFile);
+//		}
+//	}
+//	
+//	
+//	//read
+//
+//if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
+//	{
+//		Error_Handler();
+//	}
+//	else
+//	{
+//		if (f_open(&MyFile, "myhui.txt", FA_READ) != FR_OK)
+//		{
+//			Error_Handler();
+//		}
+//		else
+//		{
+//			ReadLongFile();
+//			f_close(&MyFile);
+//		}
+//	}
+//
+//	
+//FATFS_UnLinkDriver(USERPath);	
 	
 	
   /* USER CODE END 2 */
@@ -395,7 +402,8 @@ FATFS_UnLinkDriver(USERPath);
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	 
+	  RTClockRead();
+	  //RTClockInit();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -410,8 +418,8 @@ FATFS_UnLinkDriver(USERPath);
 	  
 	  //LCD_Num_To_Str(EncCount ,3);
 	  //if(gg > 169)gg = 1;
-	  LD_OFF;
-	  HAL_Delay(500);
+//	  LD_OFF;
+//	  HAL_Delay(500);
 	  //HAL_GPIO_TogglePin(HUED_GPIO_Port, HUED_Pin); 
 	  
 	  // unsigned int rrr = GPIOC->ODR;
@@ -421,33 +429,36 @@ FATFS_UnLinkDriver(USERPath);
 	  //LCD_String("2");
 	  //LCD_String("34");
 	  // LCD_PrintReg(GPIOC->ODR, "ODR");
-	  PWR->CR |= PWR_CR_PVDE | PWR_CR_PLS_2V2;
-	  //LCD_PrintReg(PWR->CR, "PWR->CR");
-	  LCD_PrintReg(PWR->CSR, "PWR->CSR");
-	 // int OFR=
-	  int OF = PWR->CSR & 1 << 2;
-	  LCD_Num_To_Str(OF, 1);
+//	  PWR->CR |= PWR_CR_PVDE | PWR_CR_PLS_2V2;
+//	  //LCD_PrintReg(PWR->CR, "PWR->CR");
+//	  LCD_PrintReg(PWR->CSR, "PWR->CSR");
+//	 // int OFR=
+//	  int OF = PWR->CSR & 1 << 2;
+//	  LCD_Num_To_Str(OF, 1);
+//	  
+//	  
+// 	  HAL_Delay(500);
+//	  
+//	  
+//	  
+//	  LCD_GoTo(3, 8);
+//	  LCD_Num_To_Str( EncCount++,3);
+//	  
+//	  //odr
+//	  
+//	  if(0 && sd_ini() == 0)
+//	  {
+//		  
+//		  char buffer1[512] = "Go fuck yourself fucking stupid duck. Fuck you Go fuck yourself fucking stupid duck. Fuck youGo fuck yourself fucking stupid duck. Fuck youGo fuck yourself fucking stupid duck. Fuck you";
+//		  SD_Write_Block((uint8_t*)buffer1, 0x0400);
+//		  SD_Read_Block(sect, 0x0400);    //—читаем блок из буфера
+//		  //SD_Read_Block(sect, 0x6);
+//		  if(sect[5]!=0)
+//		   LCD_GoTo(3, 8);
+//	  }
 	  
 	  
- 	  HAL_Delay(500);
-	  
-	  
-	  
-	  LCD_GoTo(3, 8);
-	  LCD_Num_To_Str( EncCount++,3);
-	  
-	  //odr
-	  
-	  if(0 && sd_ini() == 0)
-	  {
-		  
-		  char buffer1[512] = "Go fuck yourself fucking stupid duck. Fuck you Go fuck yourself fucking stupid duck. Fuck youGo fuck yourself fucking stupid duck. Fuck youGo fuck yourself fucking stupid duck. Fuck you";
-		  SD_Write_Block((uint8_t*)buffer1, 0x0400);
-		  SD_Read_Block(sect, 0x0400);    //—читаем блок из буфера
-		  //SD_Read_Block(sect, 0x6);
-		  if(sect[5]!=0)
-		   LCD_GoTo(3, 8);
-	  }
+
 	  
 	  
 	  //HAL_UART_Transmit(&huart3, (uint8_t*)"USER_initializern\r\n", 19, 0x1000);

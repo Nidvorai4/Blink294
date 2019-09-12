@@ -271,8 +271,8 @@ uint8_t sd_ini(void)
 					//Мы его получим сразу в возврате из функции. А остальные 4 байта мы получим отдельно.
 					for(i = 0 ; i < 4 ; i++) ocr[i] = SPI_ReceiveByte();
 					#ifdef VyvodInfoFromKepka
-						(str1, "OCR: 0x%02X 0x%02X 0x%02X 0x%02X\r\n", ocr[0], ocr[1], ocr[2], ocr[3]);
-						VyvodInfoFromKepka HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
+						sprintf(str1, "OCR: 0x%02X 0x%02X 0x%02X 0x%02X\r\n", ocr[0], ocr[1], ocr[2], ocr[3]);
+						HAL_UART_Transmit(&huart3, (uint8_t*)str1, strlen(str1), 0x1000);
 					#endif
 					// Get trailing return value of R7 resp
 					if(ocr[2] == 0x01 && ocr[3] == 0xAA) // The card can work at vdd range of 2.7-3.6V

@@ -12,9 +12,7 @@
 
 #include <stdint.h>
 
-#ifdef VyvodInfoFromKepka
- #include "stdio.h"
-#endif
+
 
 #include "main.h"
 

@@ -32,7 +32,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdarg.h> // для функции вывода в консоль
+#include "stdio.h" // для функции вывода в консоль
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -54,7 +55,9 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+	//void OtladkaPrint(char* Tekst, uint32_t Chislo, uint8_t T1Ch2TandCh3, uint8_t NewLine);
+//void OtladkaPrint(const char* args, ...);
+void OtladkaPrint(uint8_t NextLine, const char* args, ...);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

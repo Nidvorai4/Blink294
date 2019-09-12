@@ -345,12 +345,18 @@
     <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\integer.h">
       <Filter>Header files\STM32Cube HAL\FATFS</Filter>
     </ClInclude>
+    <ClCompile Include="Modules\RTC\RTClock.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorkWithOLED.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Modules\SD\SD.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Modules\RTC\RTClock.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
