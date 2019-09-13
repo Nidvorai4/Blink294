@@ -348,6 +348,9 @@
     <ClCompile Include="Modules\RTC\RTClock.c">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Modules\Gradusnik\Gradusnik.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorkWithOLED.h">
@@ -357,6 +360,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Modules\RTC\RTClock.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Modules\Gradusnik\Gradusnik.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

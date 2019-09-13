@@ -33,6 +33,7 @@
 #include "WorkWithOLED.h"
 #include "./Modules/SD/SD.h"
 #include "./Modules/RTC/RTClock.h"
+#include "./Modules/Gradusnik/Gradusnik.h"
 
 
 /* USER CODE END Includes */
@@ -184,8 +185,15 @@ int main(void)
 						DIR dir;
 						DWORD fre_clust, fre_sect, tot_sect;
 // <- для работы с СД 
-	
-  /* USER CODE END 1 */
+
+// для работы с градусником ->	
+								uint8_t status; 
+	                            uint8_t dt[8];
+								uint16_t raw_temper;
+								float temper;
+								char c;
+// <- для работы с градусником 	
+	/* USER CODE END 1 */
   
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -212,6 +220,8 @@ int main(void)
   MX_USART3_UART_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
+  GraduskikPin_init();
+	
 //	HAL_Delay(100);
 //	LCD_init();
 //	LCD_Clear();
@@ -320,80 +330,85 @@ int main(void)
 	OtladkaPrint(1,"########################\r\n");
 	
 	
-//disk_initialize(SDFatFs.drv);
+	//disk_initialize(SDFatFs.drv);
 
-//	//read dir
-//	if(f_mount(&SDFatFs, (TCHAR const*)USER_Path, 0) != FR_OK)
-//	{
-//		Error_Handler();
-//	}
-//	else
-//	{
-//		fileInfo.lfname = (char*)sect;
-//		fileInfo.lfsize = sizeof(sect);
-//		result = f_opendir(&dir, "/");
-//		if (result == FR_OK)
-//		{
-//			f_closedir(&dir);
-//		}
-//	}	
-													/* Move to end of the file to append data */
-													//res = f_lseek(fp, f_size(fp));
+	//	//read dir
+	//	if(f_mount(&SDFatFs, (TCHAR const*)USER_Path, 0) != FR_OK)
+	//	{
+	//		Error_Handler();
+	//	}
+	//	else
+	//	{
+	//		fileInfo.lfname = (char*)sect;
+	//		fileInfo.lfsize = sizeof(sect);
+	//		result = f_opendir(&dir, "/");
+	//		if (result == FR_OK)
+	//		{
+	//			f_closedir(&dir);
+	//		}
+	//	}	
+														/* Move to end of the file to append data */
+														//res = f_lseek(fp, f_size(fp));
 	
-													//Размонтируем:
-													//
-													//if(f_mount(NULL,USER_Path,0)==FR_OK)  FATFS_UnLinkDriver(USER_Path);  
-	
-	
+														//Размонтируем:
+														//
+														//if(f_mount(NULL,USER_Path,0)==FR_OK)  FATFS_UnLinkDriver(USER_Path);  
 	
 	
-//	//write
-//
-//	if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
-//	{
-//		Error_Handler();
-//	}
-//	else
-//	{
-//		if (f_open(&MyFile, "myHUI.txt", FA_OPEN_ALWAYS | FA_WRITE) != FR_OK)
-//		{
-//			Error_Handler();
-//		}
-//		else
-//		{
-//			res = f_write(&MyFile, wtext, sizeof(wtext), (void*)&byteswritten);
-//			res = f_lseek(&MyFile, f_size(&MyFile));
-//			res = f_write(&MyFile, "HUiCSHE\n\r", 9, (void*)&byteswritten);
-//			if ((byteswritten == 0) || (res != FR_OK))
-//			{
-//				Error_Handler();
-//			}
-//			f_close(&MyFile);
-//		}
-//	}
-//	
-//	
-//	//read
-//
-//if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
-//	{
-//		Error_Handler();
-//	}
-//	else
-//	{
-//		if (f_open(&MyFile, "myhui.txt", FA_READ) != FR_OK)
-//		{
-//			Error_Handler();
-//		}
-//		else
-//		{
-//			ReadLongFile();
-//			f_close(&MyFile);
-//		}
-//	}
-//
-//	
-//FATFS_UnLinkDriver(USERPath);	
+	
+	
+														//	//write
+														//
+														//	if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
+														//	{
+														//		Error_Handler();
+														//	}
+														//	else
+														//	{
+														//		if (f_open(&MyFile, "myHUI.txt", FA_OPEN_ALWAYS | FA_WRITE) != FR_OK)
+														//		{
+														//			Error_Handler();
+														//		}
+														//		else
+														//		{
+														//			res = f_write(&MyFile, wtext, sizeof(wtext), (void*)&byteswritten);
+														//			res = f_lseek(&MyFile, f_size(&MyFile));
+														//			res = f_write(&MyFile, "HUiCSHE\n\r", 9, (void*)&byteswritten);
+														//			if ((byteswritten == 0) || (res != FR_OK))
+														//			{
+														//				Error_Handler();
+														//			}
+														//			f_close(&MyFile);
+														//		}
+														//	}
+														//	
+														//	
+														//	//read
+														//
+														//if(f_mount(&SDFatFs, (TCHAR const*)USERPath, 0) != FR_OK)
+														//	{
+														//		Error_Handler();
+														//	}
+														//	else
+														//	{
+														//		if (f_open(&MyFile, "myhui.txt", FA_READ) != FR_OK)
+														//		{
+														//			Error_Handler();
+														//		}
+														//		else
+														//		{
+														//			ReadLongFile();
+														//			f_close(&MyFile);
+														//		}
+														//	}
+														//
+														//	
+														//FATFS_UnLinkDriver(USERPath);	
+	
+		status = ds18b20_init();
+		OtladkaPrint(1, "Status termo %i   ", status);
+		//HAL_Delay(500);
+
 	
 	
   /* USER CODE END 2 */
@@ -402,7 +417,27 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	 // RTClockWrite(EncCount, 10);
+	  OtladkaPrint(1, "..........................");
 	  RTClockRead();
+	  GradusnikRead();
+	  OtladkaPrint(1, "My temp %i", Temperatura);
+	  OtladkaPrint(1, "Encoder: %i", EncCount);
+	  
+//	for (int i = 1; i < 10; i++)
+//	{
+//		HAL_UART_Receive(&huart2, (uint8_t*)Temper, 2, 100);
+//		OtladkaPrint(0, "%i.%i ", Temper[0], Temper[1]);
+//	}  
+//	OtladkaPrint(1, "");	  
+	  
+
+	  
+	  
+	  //Read Rom[33h]
+	  
+	 
+	  
 	  //RTClockInit();
     /* USER CODE END WHILE */
 
@@ -491,7 +526,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL5;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -505,7 +540,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }

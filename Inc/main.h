@@ -63,6 +63,8 @@ void OtladkaPrint(uint8_t NextLine, const char* args, ...);
 /* Private defines -----------------------------------------------------------*/
 #define HUED_Pin GPIO_PIN_13
 #define HUED_GPIO_Port GPIOC
+#define GradusnikPin_Pin GPIO_PIN_2
+#define GradusnikPin_GPIO_Port GPIOA
 #define SD_SPI1_OnOff_Pin_Pin GPIO_PIN_4
 #define SD_SPI1_OnOff_Pin_GPIO_Port GPIOA
 #define SD_SPI1_SCK_Pin GPIO_PIN_5
