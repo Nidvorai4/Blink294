@@ -47,7 +47,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeIncludeSearchPath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Core\Include;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Device\ST\STM32F1xx\Include;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src;.;$(BSP_ROOT)\FatFs\src;$(BSP_ROOT)\FatFs\src\drivers;$(BSP_ROOT)\STM32F7xxxx\BSP\STM32756G_EVAL;$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc;$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\Legacy;$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Core\Include;$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Device\ST\STM32F1xx\Include;$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include;$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\RTOS2\Include;$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1;$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1\arm-none-eabi\thumb\v7-m\nofp;$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-none-eabi\9.2.1\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-none-eabi\9.2.1\include-fixed;$(TOOLCHAIN_ROOT)\arm-none-eabi\include;Inc;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\RTOS\Template;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Include;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS;Inc;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Device\ST\STM32F1xx\Include;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3;.;$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1;$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1\arm-none-eabi\thumb\v7-m\nofp;$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-none-eabi\9.2.1\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-none-eabi\9.2.1\include-fixed;$(TOOLCHAIN_ROOT)\arm-none-eabi\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(BSP_ROOT)\stm32_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
@@ -59,7 +59,7 @@
     <NMakePreprocessorDefinitions>__VisualGDB_CFG_Debug;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <NMakeIncludeSearchPath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Device\ST\STM32F1xx\Include;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy;.;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\cortex_m3;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include-fixed;$(TOOLCHAIN_ROOT)\arm-eabi\sys-include;$(TOOLCHAIN_ROOT)\arm-eabi\include;Inc;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>Inc;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Device\ST\STM32F1xx\Include;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy;C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src;.;$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1;$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1\arm-none-eabi\thumb\v7-m\nofp;$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-none-eabi\9.2.1\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-none-eabi\9.2.1\include-fixed;$(TOOLCHAIN_ROOT)\arm-none-eabi\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)\gcc_Release.h;$(VISUALGDB_DIR)\gcc_compat.h;$(BSP_ROOT)\stm32_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
@@ -79,10 +79,22 @@
   </ImportGroup>
   <ItemGroup />
   <ItemGroup>
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c" />
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\croutine.c" />
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c" />
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\list.c" />
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c" />
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c" />
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\queue.c" />
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c" />
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\tasks.c" />
+    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\timers.c" />
     <ClCompile Include="Modules\Gradusnik\Gradusnik.c" />
     <ClCompile Include="Modules\RTC\RTClock.c" />
     <ClCompile Include="Modules\SD\SD.c" />
+    <ClCompile Include="Src\freertos.c" />
     <ClCompile Include="Src\gpio.c" />
+    <ClCompile Include="Src\stm32f1xx_hal_timebase_tim.c" />
     <ClCompile Include="Src\stm32f1xx_it.c" />
     <ClCompile Include="Src\stm32f1xx_hal_msp.c" />
     <ClCompile Include="Src\main.c" />
@@ -100,6 +112,25 @@
     <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_flash_ex.c" />
     <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio.c" />
     <ClCompile Include="WorkWithOLED.c" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\croutine.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\deprecated_definitions.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\list.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\message_buffer.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\mpu_prototypes.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\mpu_wrappers.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\StackMacros.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\stack_macros.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\stream_buffer.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\task.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\timers.h" />
+    <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" />
+    <ClInclude Include="Inc\FreeRTOSConfig.h" />
     <ClInclude Include="Modules\Gradusnik\Gradusnik.h" />
     <ClInclude Include="Modules\RTC\RTClock.h" />
     <ClInclude Include="Modules\SD\SD.h" />
@@ -153,174 +184,11 @@
     <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\ff.c" />
     <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c" />
     <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\option\syscall.c" />
-    <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\option\ccsbcs.c" />
-    <ClInclude Include="Inc\ffconf.h" />
     <ClInclude Include="Inc\user_diskio.h" />
     <ClInclude Include="Inc\fatfs.h" />
     <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\diskio.h" />
     <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\ff.h" />
     <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h" />
     <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\integer.h" />
-    <ClCompile Include="$(BSP_ROOT)\FatFs\src\diskio.c" />
-    <ClCompile Include="$(BSP_ROOT)\FatFs\src\ff.c" />
-    <ClCompile Include="$(BSP_ROOT)\FatFs\src\ff_gen_drv.c" />
-    <ClCompile Include="$(BSP_ROOT)\FatFs\src\option\syscall.c" />
-    <ClCompile Include="$(BSP_ROOT)\FatFs\src\option\unicode.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_adc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_adc_ex.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_can.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cec.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cortex.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_crc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dac.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dac_ex.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_eth.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_exti.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_flash.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_flash_ex.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio_ex.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_hcd.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_i2c.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_i2s.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_irda.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_iwdg.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_mmc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_nand.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_nor.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pccard.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pcd.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pcd_ex.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pwr.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc_ex.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rtc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rtc_ex.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_sd.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_smartcard.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_spi.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_sram.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_uart.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_usart.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_wwdg.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usb.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_adc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_crc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_dac.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_dma.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_exti.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_fsmc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_gpio.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_i2c.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_pwr.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_rcc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_rtc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_sdmmc.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_spi.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_tim.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usart.c" />
-    <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_utils.c" />
-    <ClInclude Include="$(BSP_ROOT)\FatFs\src\diskio.h" />
-    <ClInclude Include="$(BSP_ROOT)\FatFs\src\ff.h" />
-    <ClInclude Include="$(BSP_ROOT)\FatFs\src\ffconf_template.h" />
-    <ClInclude Include="$(BSP_ROOT)\FatFs\src\ff_gen_drv.h" />
-    <ClInclude Include="$(BSP_ROOT)\FatFs\src\integer.h" />
-    <ClInclude Include="$(BSP_ROOT)\BSP\ConfigTemplates\ffconf.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc_ex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_can.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cec.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_crc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dac.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dac_ex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_eth.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2s.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_irda.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_iwdg.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_nand.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_nor.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pccard.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rtc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rtc_ex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sd.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_smartcard.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_spi.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sram.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_usart.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_wwdg.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\Legacy\stm32f1xx_hal_can_ex_legacy.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\Legacy\stm32f1xx_hal_can_legacy.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\cmsis_armcc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\cmsis_armclang.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\cmsis_compiler.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\cmsis_gcc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\cmsis_iccarm.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\cmsis_version.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_armv8mbl.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_armv8mml.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_cm0.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_cm0plus.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_cm1.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_cm23.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_cm3.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_cm33.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_cm4.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_cm7.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_sc000.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\core_sc300.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\mpu_armv7.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\mpu_armv8.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Include\tz_context.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Device\ST\STM32F1xx\Include\stm32f1xx.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\Device\ST\STM32F1xx\Include\system_stm32f1xx.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\CMSIS_HAL\RTOS\Template\cmsis_os.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_adc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_bus.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_cortex.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_crc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_dac.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_dma.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_exti.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_fsmc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_gpio.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_i2c.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_iwdg.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_pwr.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_rcc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_rtc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_spi.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_system.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_tim.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usart.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_utils.h" />
-    <ClInclude Include="$(BSP_ROOT)\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_wwdg.h" />
   </ItemGroup>
 </Project>

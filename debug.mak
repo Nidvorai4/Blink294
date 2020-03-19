@@ -5,9 +5,9 @@
 BINARYDIR := Debug
 
 #Additional flags
-PREPROCESSOR_MACROS := DEBUG=1 flash_layout STM32F103xB
-INCLUDE_DIRS := C:/Users/Basay/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/Core/Include Inc C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Device\ST\STM32F1xx\Include C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src $(ToolchainDir)/arm-none-eabi/include/c++/9.2.1/arm-none-eabi $(ToolchainDir)/arm-none-eabi/include/c++/9.2.1/tr1 $(ToolchainDir)/lib/gcc/arm-none-eabi/9.2.1/include C:/Users/Basay/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/RTOS/Template
-LIBRARY_DIRS := 
+PREPROCESSOR_MACROS := DEBUG=1 flash_layout STM32F103xB USE_FREERTOS
+INCLUDE_DIRS := C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Include C:/Users/Basay/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.0/Middlewares/Third_Party/FreeRTOS/Source/include C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3 Inc C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Device\ST\STM32F1xx\Include C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src
+LIBRARY_DIRS := C:/Users/Basay/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.0/Middlewares/Third_Party/FreeRTOS/Source
 LIBRARY_NAMES := 
 ADDITIONAL_LINKER_INPUTS := 
 MACOS_FRAMEWORKS := 

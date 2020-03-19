@@ -414,8 +414,7 @@ int main(void)
 	
   /* USER CODE END 2 */
 
-  /* Init scheduler */
-  osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */
+  /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init(); 
   /* Start scheduler */
   osKernelStart();
@@ -432,7 +431,7 @@ int main(void)
 	  OtladkaPrint(1, "My temp %i", Temperatura);
 	  OtladkaPrint(1, "Encoder: %i", EncCount);
 	  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-	  HAL_Delay(500);
+	  HAL_Delay(300);
 //	for (int i = 1; i < 10; i++)
 //	{
 //		HAL_UART_Receive(&huart2, (uint8_t*)Temper, 2, 100);

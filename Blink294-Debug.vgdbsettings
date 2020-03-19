@@ -22,10 +22,6 @@
     <AdditionalMakeArguments>$(LocalMultiThreadedBuildFlags)</AdditionalMakeArguments>
     <MakeCommandTemplate>
       <SkipWhenRunningCommandList>false</SkipWhenRunningCommandList>
-      <RemoteHost>
-        <HostName>BuildMachine</HostName>
-        <Transport>BuiltinShortcut</Transport>
-      </RemoteHost>
       <Command>$(ToolchainMake)</Command>
       <Arguments>$(ToolchainMakeArgs)</Arguments>
       <WorkingDirectory>$(BuildDir)</WorkingDirectory>
@@ -118,6 +114,12 @@
     <ExtraSettings>
       <HideErrorsInSystemHeaders>true</HideErrorsInSystemHeaders>
       <SupportLightweightReferenceAnalysis>true</SupportLightweightReferenceAnalysis>
+      <DiscoverySettings>
+        <Mode>Enabled</Mode>
+        <SearchInProjectDir>true</SearchInProjectDir>
+        <SearchInSourceDirs>true</SearchInSourceDirs>
+        <SearchInIncludeSubdirs>true</SearchInIncludeSubdirs>
+      </DiscoverySettings>
       <CheckForClangFormatFiles>true</CheckForClangFormatFiles>
       <FormattingEngine xsi:nil="true" />
     </ExtraSettings>
@@ -181,6 +183,8 @@
         <ProgramFLASHUsingExternalTool>false</ProgramFLASHUsingExternalTool>
         <PreferredGDBPort>0</PreferredGDBPort>
         <PreferredTelnetPort>0</PreferredTelnetPort>
+        <AlwaysPassSerialNumber>false</AlwaysPassSerialNumber>
+        <SelectedCoreIndex xsi:nil="true" />
       </Configuration>
     </DebugMethod>
     <AutoDetectRTOS>true</AutoDetectRTOS>

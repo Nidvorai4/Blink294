@@ -21,7 +21,7 @@
       </KeyValue>
       <KeyValue>
         <Key>com.sysprogs.toolchainoptions.arm.libctype</Key>
-        <Value>--specs=nano.specs</Value>
+        <Value />
       </KeyValue>
       <KeyValue>
         <Key>com.sysprogs.toolchainoptions.arm.syscallspecs</Key>
@@ -35,23 +35,31 @@
   </MCUProperties>
   <BSPSourceFolderName>Device-specific files</BSPSourceFolderName>
   <MCUMakFile>stm32.mak</MCUMakFile>
-  <ReferencedFrameworks>
-    <string>com.sysprogs.arm.stm32.FatFs</string>
-    <string>com.sysprogs.arm.stm32.hal</string>
-    <string>com.sysprogs.arm.stm32.ll</string>
-  </ReferencedFrameworks>
+  <ReferencedFrameworks />
   <FrameworkProperties>
     <Entries>
       <KeyValue>
+        <Key>com.sysprogs.bspoptions.stm32.ll_driver</Key>
+      </KeyValue>
+      <KeyValue>
         <Key>com.sysprogs.stm32.legacy_hal_src</Key>
-        <Value />
+        <Value>1</Value>
       </KeyValue>
       <KeyValue>
         <Key>com.sysprogs.bspoptions.stm32.hal_legacy</Key>
         <Value>USE_HAL_LEGACY</Value>
       </KeyValue>
       <KeyValue>
-        <Key>com.sysprogs.bspoptions.stm32.ll_driver</Key>
+        <Key>com.sysprogs.bspoptions.stm32.freertos.heap</Key>
+        <Value>heap_4</Value>
+      </KeyValue>
+      <KeyValue>
+        <Key>com.sysprogs.bspoptions.stm32.freertos.portcore</Key>
+        <Value>CM3</Value>
+      </KeyValue>
+      <KeyValue>
+        <Key>com.sysprogs.bspoptions.stm32.freertos.cmsis</Key>
+        <Value>CMSIS_RTOS</Value>
       </KeyValue>
     </Entries>
   </FrameworkProperties>
@@ -64,7 +72,7 @@
     <AllDependencies>
       <ProjectDependency>
         <RelativePath>Blink294.gpdsc</RelativePath>
-        <Timestamp>132165748597643873</Timestamp>
+        <Timestamp>132290301244476069</Timestamp>
       </ProjectDependency>
     </AllDependencies>
     <RootDirectory>
@@ -143,17 +151,6 @@
               </Files>
             </VirtualDirectorySnapshot>
             <VirtualDirectorySnapshot>
-              <Name>SPI</Name>
-              <Files>
-                <VirtualFileSnapshot>
-                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_spi.h</RelativePath>
-                </VirtualFileSnapshot>
-                <VirtualFileSnapshot>
-                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_spi.c</RelativePath>
-                </VirtualFileSnapshot>
-              </Files>
-            </VirtualDirectorySnapshot>
-            <VirtualDirectorySnapshot>
               <Name>FLASH</Name>
               <Files>
                 <VirtualFileSnapshot>
@@ -171,6 +168,17 @@
               </Files>
             </VirtualDirectorySnapshot>
             <VirtualDirectorySnapshot>
+              <Name>SPI</Name>
+              <Files>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_spi.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_spi.c</RelativePath>
+                </VirtualFileSnapshot>
+              </Files>
+            </VirtualDirectorySnapshot>
+            <VirtualDirectorySnapshot>
               <Name>GPIO</Name>
               <Files>
                 <VirtualFileSnapshot>
@@ -184,6 +192,92 @@
                 </VirtualFileSnapshot>
                 <VirtualFileSnapshot>
                   <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio_ex.c</RelativePath>
+                </VirtualFileSnapshot>
+              </Files>
+            </VirtualDirectorySnapshot>
+            <VirtualDirectorySnapshot>
+              <Name>FREERTOS</Name>
+              <Files>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\croutine.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\deprecated_definitions.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\list.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\message_buffer.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\mpu_prototypes.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\mpu_wrappers.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\stack_macros.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\StackMacros.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\stream_buffer.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\task.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include\timers.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\croutine.c</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\list.c</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\queue.c</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\tasks.c</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\timers.c</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h</RelativePath>
                 </VirtualFileSnapshot>
               </Files>
             </VirtualDirectorySnapshot>
@@ -216,6 +310,20 @@
               </Files>
             </VirtualDirectorySnapshot>
             <VirtualDirectorySnapshot>
+              <Name>DMA</Name>
+              <Files>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c</RelativePath>
+                </VirtualFileSnapshot>
+              </Files>
+            </VirtualDirectorySnapshot>
+            <VirtualDirectorySnapshot>
               <Name>TIM</Name>
               <Files>
                 <VirtualFileSnapshot>
@@ -229,20 +337,6 @@
                 </VirtualFileSnapshot>
                 <VirtualFileSnapshot>
                   <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c</RelativePath>
-                </VirtualFileSnapshot>
-              </Files>
-            </VirtualDirectorySnapshot>
-            <VirtualDirectorySnapshot>
-              <Name>DMA</Name>
-              <Files>
-                <VirtualFileSnapshot>
-                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h</RelativePath>
-                </VirtualFileSnapshot>
-                <VirtualFileSnapshot>
-                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h</RelativePath>
-                </VirtualFileSnapshot>
-                <VirtualFileSnapshot>
-                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c</RelativePath>
                 </VirtualFileSnapshot>
               </Files>
             </VirtualDirectorySnapshot>
@@ -284,9 +378,6 @@
                 <VirtualFileSnapshot>
                   <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\option\syscall.c</RelativePath>
                 </VirtualFileSnapshot>
-                <VirtualFileSnapshot>
-                  <RelativePath>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src\option\ccsbcs.c</RelativePath>
-                </VirtualFileSnapshot>
               </Files>
             </VirtualDirectorySnapshot>
           </Subdirectories>
@@ -305,6 +396,9 @@
         </VirtualFileSnapshot>
         <VirtualFileSnapshot>
           <RelativePath>Inc\fatfs.h</RelativePath>
+        </VirtualFileSnapshot>
+        <VirtualFileSnapshot>
+          <RelativePath>Inc\FreeRTOSConfig.h</RelativePath>
         </VirtualFileSnapshot>
         <VirtualFileSnapshot>
           <RelativePath>Inc\i2c.h</RelativePath>
@@ -334,6 +428,9 @@
           <RelativePath>Src\fatfs.c</RelativePath>
         </VirtualFileSnapshot>
         <VirtualFileSnapshot>
+          <RelativePath>Src\freertos.c</RelativePath>
+        </VirtualFileSnapshot>
+        <VirtualFileSnapshot>
           <RelativePath>Src\i2c.c</RelativePath>
         </VirtualFileSnapshot>
         <VirtualFileSnapshot>
@@ -349,6 +446,9 @@
           <RelativePath>Src\stm32f1xx_hal_msp.c</RelativePath>
         </VirtualFileSnapshot>
         <VirtualFileSnapshot>
+          <RelativePath>Src\stm32f1xx_hal_timebase_tim.c</RelativePath>
+        </VirtualFileSnapshot>
+        <VirtualFileSnapshot>
           <RelativePath>Src\main.c</RelativePath>
         </VirtualFileSnapshot>
       </Files>
@@ -361,12 +461,15 @@
             <string>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Device\ST\STM32F1xx\Include</string>
             <string>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc</string>
             <string>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src</string>
+            <string>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include</string>
+            <string>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3</string>
             <string>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy</string>
             <string>C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src</string>
           </IncludeDirectories>
           <PreprocessorMacros>
             <string>$$com.sysprogs.bspoptions.primary_memory$$_layout</string>
             <string>$$com.sysprogs.stm32.hal_device_family$$</string>
+            <string>USE_FREERTOS</string>
           </PreprocessorMacros>
           <GeneratePreprocessorOutput>false</GeneratePreprocessorOutput>
           <IsDebugConfiguration>false</IsDebugConfiguration>

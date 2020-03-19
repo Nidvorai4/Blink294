@@ -110,9 +110,6 @@
 #ifndef __GCC_ATOMIC_CHAR_LOCK_FREE
 #define __GCC_ATOMIC_CHAR_LOCK_FREE 2
 #endif
-#ifndef USE_HAL_LEGACY
-#define USE_HAL_LEGACY 1
-#endif
 #ifndef __GCC_IEC_559
 #define __GCC_IEC_559 0
 #endif
@@ -421,9 +418,6 @@
 #endif
 #ifndef __BIGGEST_ALIGNMENT__
 #define __BIGGEST_ALIGNMENT__ 8
-#endif
-#ifndef USE_HAL_DRIVER
-#define USE_HAL_DRIVER 1
 #endif
 #ifndef __STDC_UTF_16__
 #define __STDC_UTF_16__ 1
@@ -1378,32 +1372,23 @@
 #endif
 
 // --- Include directories begin --- //
-//C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Core\Include
+//C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Include
+//C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\include
+//C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS
+//Inc
 //C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 //C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc
 //C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Src
 //C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy
 //C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FatFs\src
+//C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3
 //.
-//$(BSP_ROOT)/FatFs/src
-//$(BSP_ROOT)/FatFs/src/drivers
-//$(BSP_ROOT)/STM32F7xxxx/BSP/STM32756G_EVAL
-//$(BSP_ROOT)/STM32F1xxxx/STM32F1xx_HAL_Driver/Inc
-//$(BSP_ROOT)/STM32F1xxxx/STM32F1xx_HAL_Driver/Inc/Legacy
-//$(BSP_ROOT)/STM32F1xxxx/CMSIS_HAL/Core/Include
-//$(BSP_ROOT)/STM32F1xxxx/CMSIS_HAL/Device/ST/STM32F1xx/Include
-//$(BSP_ROOT)/STM32F1xxxx/CMSIS_HAL/Include
-//$(BSP_ROOT)/STM32F1xxxx/CMSIS_HAL/RTOS2/Include
 //$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1
 //$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1\arm-none-eabi\thumb\v7-m\nofp
 //$(TOOLCHAIN_ROOT)\arm-none-eabi\include\c++\9.2.1\backward
 //$(TOOLCHAIN_ROOT)\lib\gcc\arm-none-eabi\9.2.1\include
 //$(TOOLCHAIN_ROOT)\lib\gcc\arm-none-eabi\9.2.1\include-fixed
 //$(TOOLCHAIN_ROOT)\arm-none-eabi\include
-//Inc
-//$(ToolchainDir)/arm-none-eabi/include/c++/9.2.1/arm-none-eabi
-//$(ToolchainDir)/arm-none-eabi/include/c++/9.2.1/tr1
-//$(ToolchainDir)/lib/gcc/arm-none-eabi/9.2.1/include
 // --- Include directories end --- //
 
 
