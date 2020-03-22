@@ -588,6 +588,7 @@ void Error_Handler(void)
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
 	//HAL_UART_Transmit(&huart3, (uint8_t*)("\n\r...........Error"), 18, 0x1000);
+	
 	OtladkaPrint("Error.......",0);
 	OtladkaPrint(result,1);
 	

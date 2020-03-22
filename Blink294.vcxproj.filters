@@ -387,6 +387,9 @@
     <ClCompile Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c">
       <Filter>Source files\STM32Cube HAL\FREERTOS</Filter>
     </ClCompile>
+    <ClCompile Include="Src\DebuggingRTOS.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorkWithOLED.h">

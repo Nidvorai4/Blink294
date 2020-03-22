@@ -26,7 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */     
-
+#include "DebuggingRTOS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,6 +49,8 @@
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
+osThreadId FR_DISPLAYtaskHandle;
+osThreadId FR_Gradusnik_taHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -56,11 +58,30 @@ osThreadId defaultTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
+void FR_DISPLAY(void const * argument);
+void FR_Gradusnik(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+
+/* Hook prototypes */
+void configureTimerForRunTimeStats(void);
+unsigned long getRunTimeCounterValue(void);
+
+/* USER CODE BEGIN 1 */
+/* Functions needed when configGENERATE_RUN_TIME_STATS is on */
+__weak void configureTimerForRunTimeStats(void)
+{
+
+}
+
+__weak unsigned long getRunTimeCounterValue(void)
+{
+return 0;
+}
+/* USER CODE END 1 */
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
@@ -106,6 +127,14 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
+  /* definition and creation of FR_DISPLAYtask */
+  osThreadDef(FR_DISPLAYtask, FR_DISPLAY, osPriorityIdle, 0, 128);
+  FR_DISPLAYtaskHandle = osThreadCreate(osThread(FR_DISPLAYtask), NULL);
+
+  /* definition and creation of FR_Gradusnik_ta */
+  osThreadDef(FR_Gradusnik_ta, FR_Gradusnik, osPriorityIdle, 0, 128);
+  FR_Gradusnik_taHandle = osThreadCreate(osThread(FR_Gradusnik_ta), NULL);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -126,9 +155,46 @@ void StartDefaultTask(void const * argument)
   for(;;)
   {
 	  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	  TaskiPoPolkam();
 	  osDelay(100);
   }
   /* USER CODE END StartDefaultTask */
+}
+
+/* USER CODE BEGIN Header_FR_DISPLAY */
+/**
+* @brief Function implementing the FR_DISPLAYtask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_FR_DISPLAY */
+void FR_DISPLAY(void const * argument)
+{
+  /* USER CODE BEGIN FR_DISPLAY */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END FR_DISPLAY */
+}
+
+/* USER CODE BEGIN Header_FR_Gradusnik */
+/**
+* @brief Function implementing the FR_Gradusnik_ta thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_FR_Gradusnik */
+void FR_Gradusnik(void const * argument)
+{
+  /* USER CODE BEGIN FR_Gradusnik */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END FR_Gradusnik */
 }
 
 /* Private application code --------------------------------------------------*/
