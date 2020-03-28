@@ -1,19 +1,41 @@
 #include "WorkWithOLED.h"
+#include "WorkWithOLED_pics.h"
 
+//21 символ по горизонтали начиная с 1
 uint16_t gg = 0;  // для счетчика в while
 uint8_t temp[2] = { 0, 0 };
 uint8_t temp_char[7] = { 0, 0, 0, 0, 0, 0, 0 }; // для вывода буковок
 unsigned char LCD_X, LCD_Y;
+//struct Pik Piki[];
 
+
+//struct Pik Piki[] = { { 1, 2, 3, 4, { 1, 4 } } };
+//struct Pik Piki[] = { { 1, 2, 3, 4 }, {5,6,7,8}};
+//struct Pik pppp = { 1, 2, 3, 4, {1,4,255,8,9,44,55} };
+//struct HUI hhh = { 1, 2, 3, 4 };
+
+
+
+
+	
 
 
 void LCD_Clear(void)
 {
+	//int fffff = pppp.Pipik[2];
+	
+	//uint8_t ljsfj = pppp.Pipik[1][1];
+	//uint8_t ljljkjkjl=
+	
+	//uint8_t rr=
+	
+	
+	//rrr.
 	unsigned short i;
 	unsigned short x = 0;
 	unsigned short y = 0;
 	LCD_GoTo(0, 0);
-
+ 
 	for (i = 0; i < (OLED_BUFFERSIZE); i++) //(SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8)
 		{
 			LCD_Char2(' ');
@@ -28,6 +50,15 @@ void LCD_Clear(void)
 	LCD_X = OLED_DEFAULT_SPACE;
 	LCD_Y = 0;
 }
+
+
+
+
+
+
+
+
+
 
 
 const char sym[][5] =
@@ -502,6 +533,7 @@ void sendData(uint8_t data_s)
 
 void LCD_GoTo(unsigned char x, unsigned char y)
 {
+	x+=2;
 	LCD_X = x;
 	LCD_Y = y;
 	sendCommand(0xB0 + y);
@@ -521,12 +553,12 @@ void LCD_Char2(unsigned int c)
 	temp_char[6] = 0;
 	HAL_I2C_Master_Transmit(&hi2c1, OLED_adress, temp_char, 7, 1000);
 
-	LCD_X += 8;
-	if (LCD_X > OLED_WIDTH)
-	{
-		LCD_X = OLED_DEFAULT_SPACE;
-		LCD_Y += 1;
-	}
+//	LCD_X += 8;
+//	if (LCD_X > OLED_WIDTH)
+//	{
+//		LCD_X = OLED_DEFAULT_SPACE;
+//		LCD_Y += 1;
+//	}
 }
 
 void HexToChar(unsigned int H)
@@ -614,12 +646,779 @@ void LCD_Num_To_Str(unsigned int value, unsigned char nDigit)
 	}
 }
 
+struct Pik Piki[] = {
+#if 1 // шрифты идут первыми, чтоб не плодить енамы каждой цифры
+	
+	2, 10, 0,  // Tahoma2_0
+	2, 8, 0,   // Tahoma2_1
+	2, 10, 0,  // Tahoma2_2
+	2, 10, 0,  // Tahoma2_3
+	2, 11, 0,  // Tahoma2_4
+	2, 10, 0,  // Tahoma2_5
+	2, 10, 0,  // Tahoma2_6
+	2, 10, 0,  // Tahoma2_7
+	2, 10, 0,  // Tahoma2_8
+	2, 10, 0,  // Tahoma2_9
+	2, 3, 0,   // Tahoma2_:
+	
+	
+	4,19,0, // Tahoma4_0
+	4,14,0, // Tahoma4_1
+	4,18,0, // Tahoma4_2
+	4,18,0, // Tahoma4_3
+	4,20,0, // Tahoma4_4
+	4,17,0, // Tahoma4_5
+	4,19,0, // Tahoma4_6
+	4,18,0, // Tahoma4_7
+	4,19,0, // Tahoma4_8
+	4,19,0, // Tahoma4_9
+	4,5,0,  // Tahoma4_.
+ 
+	6,28,0, // Tahoma4_0
+	6,22,0, // Tahoma4_1
+	6,27,0, // Tahoma4_2
+	6,27,0, // Tahoma4_3
+	6,30,0, // Tahoma4_4
+	6,26,0, // Tahoma4_5
+	6,28,0, // Tahoma4_6
+	6,28,0, // Tahoma4_7
+	6,28,0, // Tahoma4_8
+	6,28,0, // Tahoma4_9
+	6,7,0, // Tahoma4_.
+
+	2,14,0, // BatteryKorpus
+	1,1,0 // BatteryDelenie
+	
+	
+#endif		
+	
+
+	
+	
+
+
+		
+};
+
+const uint8_t PikiData[] =
+{
+
+
+#if 1                                                                    // Tahoma2
+		#if 1    //       Tahoma2_0    Pages=2 Segments=10
+		____XXXX,XXXX____,
+		__XXXXXX,XXXXXX__,
+		_XXX____,____XXX_,
+		XX______,______XX,
+		XX______,______XX,
+		XX______,______XX,
+		XX______,______XX,
+		_XXX____,____XXX_,
+		__XXXXXX,XXXXXXX_,
+		____XXXX,XXXX____,
+		#endif
+		#if 1    //         Tahoma2_1  Pages=2 Segments=8
+		XX______,____XX__,
+		XX______,____XX__,
+		XX______,____XX__,
+		XXXXXXXX,XXXXXXXX,
+		XXXXXXXX,XXXXXXXX,
+		XX______,________,
+		XX______,________,
+		XX______,________,
+		#endif
+		#if 1    //        Tahoma2_2   Pages=2 Segments=10
+		XXX_____,_____XX_,
+		XXXX____,______XX,
+		XXXXX___,______XX,
+		XX_XXX__,______XX,
+		XX__XXX_,______XX,
+		XX___XXX,______XX,
+		XX____XX,X____XXX,
+		XX______,XXXXXXX_,
+		XX______,_XXXXX__,
+		XX______,________,
+		#endif
+		#if 1    //     Tahoma2_3      Pages=2 Segments=10
+		_XX_____,_____XX_,
+		XX______,_____XXX,
+		XX______,______XX,
+		XX______,XX____XX,
+		XX______,XX____XX,
+		XX______,XX____XX,
+		XX______,XX____XX,
+		_XX____X,XXX__XXX,
+		_XXXXXXX,__XXXXX_,
+		___XXXX_,___XXX__,
+		#endif
+		#if 1    //    Tahoma2_4       Pages=2 Segments=11
+		______XX,X_______,
+		______XX,XX______,
+		______XX,_XX_____,
+		______XX,__XX____,
+		______XX,___XX___,
+		______XX,____XX__,
+		______XX,_____XX_,
+		XXXXXXXX,XXXXXXXX,
+		XXXXXXXX,XXXXXXXX,
+		______XX,________,
+		______XX,________,
+		#endif
+		#if 1    //   Tahoma2_5        Pages=2 Segments=10
+		_XX_____,________,
+		XXX_____,XXXXXXXX,
+		XX______,XXXXXXXX,
+		XX______,XX____XX,
+		XX______,XX____XX,
+		XX______,XX____XX,
+		XX______,XX____XX,
+		_XX____X,XX____XX,
+		__XXXXXX,X_____XX,
+		___XXXXX,______XX,
+		#endif
+		#if 1    //    Tahoma2_6       Pages=2 Segments=10
+		____XXXX,XXX_____,
+		__XXXXXX,XXXXX___,
+		_XXX___X,X__XXX__,
+		XX______,XX___XX_,
+		XX______,XX___XXX,
+		XX______,XX____XX,
+		XX______,XX____XX,
+		_XX____X,XX____XX,
+		_XXXXXXX,X_____XX,
+		___XXXXX,________,
+		#endif
+		#if 1    //    Tahoma2_7       Pages=2 Segments=10
+		________,______XX,
+		X_______,______XX,
+		XXX_____,______XX,
+		_XXXX___,______XX,
+		___XXXX_,______XX,
+		_____XXX,X_____XX,
+		_______X,XXX___XX,
+		________,_XXX__XX,
+		________,__XXXXXX,
+		________,____XXXX,
+		#endif
+		#if 1    //     Tahoma2_8      Pages=2 Segments=10
+		__XXXXX_,__XXXX__,
+		_XXXXXXX,_XXXXXX_,
+		_XX____X,XXX__XX_,
+		XX______,XX____XX,
+		XX______,XX____XX,
+		XX_____X,X_____XX,
+		XX_____X,X_____XX,
+		_XX___XX,_X___XXX,
+		_XXXXXXX,_XXXXXX_,
+		__XXXXX_,__XXXX__,
+		#endif
+		#if 1    //    Tahoma2_9       Pages=2 Segments=10
+		________,XXXXX___,
+		XX_____X,XXXXXXX_,
+		XX____XX,X____XX_,
+		XX____XX,______XX,
+		XX____XX,______XX,
+		XXX___XX,______XX,
+		_XX___XX,______XX,
+		__XXX__X,X___XXX_,
+		___XXXXX,XXXXXX__,
+		_____XXX,XXXXX___,
+		#endif
+
+		#if 1    //           Pages=2 Segments=3
+		___XXX__,__XXX___,
+		___XXX__,__XXX___,
+		___XXX__,__XXX___,
+		#endif
+
+	
+		
+#endif  // Tahoma2
+	
+#if 1                                                                    // Tahoma4
+	#if 1    //           Pages=4 Segments=19
+	________,_XXXXXXX,XXXXX___,________,
+	_____XXX,XXXXXXXX,XXXXXXXX,X_______,
+	___XXXXX,XXXXXXXX,XXXXXXXX,XXX_____,
+	__XXXXXX,XXXXXXXX,XXXXXXXX,XXXX____,
+	_XXXXXXX,________,______XX,XXXXX___,
+	_XXXX___,________,________,_XXXX___,
+	XXXX____,________,________,__XXXX__,
+	XXX_____,________,________,___XXX__,
+	XXX_____,________,________,___XXX__,
+	XXX_____,________,________,___XXX__,
+	XXX_____,________,________,___XXX__,
+	XXX_____,________,________,___XXX__,
+	XXXX____,________,________,__XXXX__,
+	_XXXX___,________,________,_XXXX___,
+	_XXXXXXX,________,______XX,XXXXX___,
+	__XXXXXX,XXXXXXXX,XXXXXXXX,XXXX____,
+	___XXXXX,XXXXXXXX,XXXXXXXX,XXX_____,
+	_____XXX,XXXXXXXX,XXXXXXXX,X_______,
+	________,_XXXXXXX,XXXXX___,________,
+	#endif
+	#if 1    //           Pages=4 Segments=14
+	XXX_____,________,______XX,X_______,
+	XXX_____,________,______XX,X_______,
+	XXX_____,________,______XX,X_______,
+	XXX_____,________,______XX,X_______,
+	XXX_____,________,______XX,XX______,
+	XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXX____,
+	XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	XXX_____,________,________,________,
+	XXX_____,________,________,________,
+	XXX_____,________,________,________,
+	XXX_____,________,________,________,
+	XXX_____,________,________,________,
+	#endif
+	#if 1    //           Pages=4 Segments=18
+	XXXX____,________,________,________,
+	XXXXX___,________,________,XXXX____,
+	XXXXXX__,________,________,_XXXX___,
+	XXXXXXX_,________,________,__XXX___,
+	XXX_XXXX,________,________,__XXX___,
+	XXX__XXX,X_______,________,___XXX__,
+	XXX___XX,XX______,________,___XXX__,
+	XXX____X,XXX_____,________,___XXX__,
+	XXX_____,XXXXX___,________,___XXX__,
+	XXX_____,_XXXXX__,________,___XXX__,
+	XXX_____,__XXXXX_,________,___XXX__,
+	XXX_____,___XXXXX,X_______,__XXXX__,
+	XXX_____,____XXXX,XXX_____,XXXXX___,
+	XXX_____,_____XXX,XXXXXXXX,XXXXX___,
+	XXX_____,______XX,XXXXXXXX,XXXX____,
+	XXX_____,________,XXXXXXXX,XXX_____,
+	XXX_____,________,__XXXXXX,X_______,
+	XXX_____,________,________,________,
+	#endif
+	#if 1    //           Pages=4 Segments=18
+	__XXXX__,________,________,________,
+	_XXXX___,________,________,XXXX____,
+	_XXXX___,________,________,_XXXX___,
+	_XXX____,________,________,__XXX___,
+	XXXX____,________,________,__XXX___,
+	XXX_____,________,________,___XXX__,
+	XXX_____,_______X,XX______,___XXX__,
+	XXX_____,_______X,XX______,___XXX__,
+	XXX_____,_______X,XX______,___XXX__,
+	XXX_____,_______X,XX______,___XXX__,
+	XXX_____,_______X,XXX_____,___XXX__,
+	XXXX____,______XX,XXX_____,__XXXX__,
+	_XXXX___,______XX,_XXXX___,_XXXX___,
+	_XXXXXX_,____XXXX,_XXXXXXX,XXXXX___,
+	__XXXXXX,XXXXXXX_,__XXXXXX,XXXX____,
+	___XXXXX,XXXXXXX_,___XXXXX,XXX_____,
+	____XXXX,XXXXXX__,____XXXX,XX______,
+	______XX,XXXX____,________,________,
+	#endif
+	#if 1    //           Pages=4 Segments=20
+	________,__XXXXX_,________,________,
+	________,__XXXXXX,________,________,
+	________,__XXXXXX,X_______,________,
+	________,__XXX__X,XX______,________,
+	________,__XXX___,XXX_____,________,
+	________,__XXX___,_XXX____,________,
+	________,__XXX___,__XXX___,________,
+	________,__XXX___,___XXXX_,________,
+	________,__XXX___,____XXXX,________,
+	________,__XXX___,_____XXX,X_______,
+	________,__XXX___,_______X,XX______,
+	________,__XXX___,________,XXX_____,
+	________,__XXX___,________,_XXX____,
+	XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	________,__XXX___,________,________,
+	________,__XXX___,________,________,
+	________,__XXX___,________,________,
+	#endif
+	#if 1    //           Pages=4 Segments=17
+	_XXXXX__,________,________,________,
+	_XXXX___,______XX,XXXXXXXX,XXXXX___,
+	_XXX____,______XX,XXXXXXXX,XXXXX___,
+	XXXX____,_______X,XXXXXXXX,XXXXX___,
+	XXXX____,_______X,XXXXXXXX,XXXXX___,
+	XXX_____,_______X,XX______,__XXX___,
+	XXX_____,_______X,XX______,__XXX___,
+	XXX_____,_______X,XX______,__XXX___,
+	XXX_____,_______X,XX______,__XXX___,
+	XXX_____,_______X,XX______,__XXX___,
+	XXXX____,______XX,XX______,__XXX___,
+	_XXXX___,______XX,XX______,__XXX___,
+	_XXXXX__,____XXXX,X_______,__XXX___,
+	__XXXXXX,XXXXXXXX,X_______,__XXX___,
+	___XXXXX,XXXXXXXX,________,__XXX___,
+	____XXXX,XXXXXXX_,________,__XXX___,
+	______XX,XXXXX___,________,__XXX___,
+	#endif
+	#if 1    //           Pages=4 Segments=19
+	________,XXXXXXXX,XXX_____,________,
+	_____XXX,XXXXXXXX,XXXXXX__,________,
+	___XXXXX,XXXXXXXX,XXXXXXXX,________,
+	__XXXXXX,XXXXXXXX,XXXXXXXX,XX______,
+	__XXXXXX,_______X,X___XXXX,XXX_____,
+	_XXXX___,_______X,XX_____X,XXXX____,
+	_XXX____,________,XX______,XXXX____,
+	XXXX____,________,XXX_____,_XXXX___,
+	XXX_____,________,XXX_____,__XXX___,
+	XXX_____,________,XXX_____,___XXX__,
+	XXX_____,________,XXX_____,___XXX__,
+	XXX_____,________,XXX_____,___XXX__,
+	XXXX____,_______X,XXX_____,___XXX__,
+	_XXXX___,_______X,XXX_____,___XXX__,
+	_XXXXX__,_____XXX,XX______,___XXX__,
+	__XXXXXX,XXXXXXXX,XX______,__XXXX__,
+	___XXXXX,XXXXXXXX,X_______,________,
+	____XXXX,XXXXXXXX,________,________,
+	_______X,XXXXXX__,________,________,
+	#endif
+	#if 1    //           Pages=4 Segments=18
+	________,________,________,__XXX___,
+	________,________,________,__XXX___,
+	X_______,________,________,__XXX___,
+	XXX_____,________,________,__XXX___,
+	XXXXX___,________,________,__XXX___,
+	XXXXXXXX,________,________,__XXX___,
+	XXXXXXXX,XX______,________,__XXX___,
+	___XXXXX,XXXX____,________,__XXX___,
+	_____XXX,XXXXXX__,________,__XXX___,
+	_______X,XXXXXXXX,________,__XXX___,
+	________,_XXXXXXX,XX______,__XXX___,
+	________,___XXXXX,XXXX____,__XXX___,
+	________,_____XXX,XXXXXXX_,__XXX___,
+	________,_______X,XXXXXXXX,X_XXX___,
+	________,________,__XXXXXX,XXXXX___,
+	________,________,____XXXX,XXXXX___,
+	________,________,______XX,XXXXX___,
+	________,________,________,XXXXX___,
+	#endif
+	#if 1    //           Pages=4 Segments=19
+	______XX,XXX_____,________,________,
+	____XXXX,XXXXX___,____XXXX,X_______,
+	__XXXXXX,XXXXXX__,__XXXXXX,XXX_____,
+	__XXXXXX,XXXXXXX_,_XXXXXXX,XXXX____,
+	_XXXXX__,____XXXX,XXXXXXXX,XXXXX___,
+	_XXXX___,_____XXX,XXXXX___,_XXXX___,
+	XXXX____,______XX,XXXX____,__XXXX__,
+	XXX_____,_______X,XXX_____,___XXX__,
+	XXX_____,_______X,XX______,___XXX__,
+	XXX_____,______XX,XX______,___XXX__,
+	XXX_____,______XX,X_______,___XXX__,
+	XXX_____,_____XXX,X_______,___XXX__,
+	XXXX____,_____XXX,XX______,__XXXX__,
+	_XXX____,____XXXX,XXX_____,_XXXX___,
+	_XXXXX__,___XXXXX,XXXXXXXX,XXXXX___,
+	__XXXXXX,XXXXXXX_,_XXXXXXX,XXXX____,
+	___XXXXX,XXXXXX__,__XXXXXX,XXX_____,
+	____XXXX,XXXXX___,____XXXX,X_______,
+	______XX,XXXX____,________,________,
+	#endif
+	#if 1    //           Pages=4 Segments=19
+	________,________,_XXXXXX_,________,
+	________,______XX,XXXXXXXX,XX______,
+	________,_____XXX,XXXXXXXX,XXX_____,
+	XXXX____,____XXXX,XXXXXXXX,XXXX____,
+	XXX_____,____XXXX,X_______,XXXXX___,
+	XXX_____,___XXXX_,________,_XXXX___,
+	XXX_____,___XXXX_,________,__XXXX__,
+	XXX_____,___XXX__,________,___XXX__,
+	XXX_____,___XXX__,________,___XXX__,
+	XXX_____,___XXX__,________,___XXX__,
+	_XXX____,___XXX__,________,___XXX__,
+	_XXXX___,___XXX__,________,___XXX__,
+	__XXXX__,____XX__,________,__XXXX__,
+	__XXXXX_,____XXX_,________,_XXXX___,
+	___XXXXX,XX___XX_,______XX,XXXXX___,
+	____XXXX,XXXXXXXX,XXXXXXXX,XXXX____,
+	______XX,XXXXXXXX,XXXXXXXX,XXX_____,
+	________,XXXXXXXX,XXXXXXXX,X_______,
+	________,___XXXXX,XXXXXX__,________,
+	#endif
+	#if 1    //           Pages=4 Segments=5
+	XXXXX___,________,________,________,
+	XXXXX___,________,________,________,
+	XXXXX___,________,________,________,
+	XXXXX___,________,________,________,
+	XXXXX___,________,________,________,
+	#endif
+
+#endif	// Tahoma4                              
+#if 1                                                                    // Tahoma6	
+	#if 1    //           Pages=6 Segments=28
+	________,_______X,XXXXXXXX,XXXXXXX_,________,________,
+	________,__XXXXXX,XXXXXXXX,XXXXXXXX,XXXX____,________,
+	_______X,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXX_,________,
+	_____XXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,X_______,
+	____XXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XX______,
+	___XXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXX_____,
+	__XXXXXX,XXXXXX__,________,________,XXXXXXXX,XXXX____,
+	__XXXXXX,XX______,________,________,____XXXX,XXXX____,
+	_XXXXXXX,________,________,________,______XX,XXXXX___,
+	_XXXXXX_,________,________,________,_______X,XXXXX___,
+	XXXXXX__,________,________,________,________,XXXXXX__,
+	XXXXX___,________,________,________,________,_XXXXX__,
+	XXXXX___,________,________,________,________,_XXXXX__,
+	XXXXX___,________,________,________,________,_XXXXX__,
+	XXXXX___,________,________,________,________,_XXXXX__,
+	XXXXX___,________,________,________,________,_XXXXX__,
+	XXXXX___,________,________,________,________,_XXXXX__,
+	XXXXXX__,________,________,________,________,XXXXXX__,
+	_XXXXXX_,________,________,________,_______X,XXXXX___,
+	_XXXXXXX,________,________,________,______XX,XXXXX___,
+	__XXXXXX,XX______,________,________,____XXXX,XXXX____,
+	__XXXXXX,XXXXXX__,________,________,XXXXXXXX,XXXX____,
+	___XXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXX_____,
+	____XXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XX______,
+	_____XXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,________,
+	_______X,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXX_,________,
+	________,__XXXXXX,XXXXXXXX,XXXXXXXX,XXXX____,________,
+	________,_______X,XXXXXXXX,XXXXXXX_,________,________,
+	#endif
+	#if 1    //           Pages=6 Segments=22
+	_XXXX___,________,________,________,___XXXX_,________,
+	_XXXX___,________,________,________,___XXXX_,________,
+	_XXXX___,________,________,________,___XXXX_,________,
+	_XXXX___,________,________,________,___XXXX_,________,
+	_XXXX___,________,________,________,___XXXX_,________,
+	_XXXX___,________,________,________,___XXXXX,________,
+	_XXXX___,________,________,________,___XXXXX,________,
+	_XXXX___,________,________,________,___XXXXX,X_______,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XX______,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXX___,________,________,________,________,________,
+	_XXXX___,________,________,________,________,________,
+	_XXXX___,________,________,________,________,________,
+	_XXXX___,________,________,________,________,________,
+	_XXXX___,________,________,________,________,________,
+	_XXXX___,________,________,________,________,________,
+	_XXXX___,________,________,________,________,________,
+	_XXXX___,________,________,________,________,________,
+	#endif
+	#if 1    //           Pages=6 Segments=27
+	_XXXXXXX,________,________,________,________,________,
+	_XXXXXXX,X_______,________,________,_____XXX,XXXX____,
+	_XXXXXXX,XX______,________,________,______XX,XXXX____,
+	_XXXXXXX,XXX_____,________,________,_______X,XXXX____,
+	_XXXXXXX,XXXX____,________,________,_______X,XXXXX___,
+	_XXXXXXX,XXXXX___,________,________,________,XXXXX___,
+	_XXXXX_X,XXXXXX__,________,________,________,XXXXX___,
+	_XXXXX__,XXXXXXX_,________,________,________,XXXXX___,
+	_XXXXX__,_XXXXXXX,________,________,________,_XXXXX__,
+	_XXXXX__,__XXXXXX,X_______,________,________,_XXXXX__,
+	_XXXXX__,___XXXXX,XX______,________,________,_XXXXX__,
+	_XXXXX__,____XXXX,XXX_____,________,________,_XXXXX__,
+	_XXXXX__,_____XXX,XXXX____,________,________,_XXXXX__,
+	_XXXXX__,______XX,XXXXX___,________,________,_XXXXX__,
+	_XXXXX__,_______X,XXXXXXX_,________,________,_XXXXX__,
+	_XXXXX__,________,XXXXXXXX,________,________,XXXXXX__,
+	_XXXXX__,________,_XXXXXXX,XX______,________,XXXXX___,
+	_XXXXX__,________,__XXXXXX,XXX_____,_______X,XXXXX___,
+	_XXXXX__,________,___XXXXX,XXXXXX__,_____XXX,XXXXX___,
+	_XXXXX__,________,____XXXX,XXXXXXXX,XXXXXXXX,XXXX____,
+	_XXXXX__,________,______XX,XXXXXXXX,XXXXXXXX,XXXX____,
+	_XXXXX__,________,_______X,XXXXXXXX,XXXXXXXX,XXX_____,
+	_XXXXX__,________,________,_XXXXXXX,XXXXXXXX,XX______,
+	_XXXXX__,________,________,__XXXXXX,XXXXXXXX,________,
+	_XXXXX__,________,________,_____XXX,XXXXXX__,________,
+	_XXXXX__,________,________,________,________,________,
+	_XXXXX__,________,________,________,________,________,
+	#endif
+	#if 1    //           Pages=6 Segments=27
+	__XXXXXX,X_______,________,________,________,________,
+	__XXXXXX,________,________,________,_____XXX,XXXX____,
+	__XXXXXX,________,________,________,______XX,XXXX____,
+	_XXXXXX_,________,________,________,______XX,XXXX____,
+	_XXXXXX_,________,________,________,_______X,XXXXX___,
+	_XXXXX__,________,________,________,_______X,XXXXX___,
+	_XXXXX__,________,________,________,________,XXXXX___,
+	XXXXXX__,________,________,________,________,XXXXX___,
+	XXXXX___,________,________,________,________,XXXXXX__,
+	XXXXX___,________,______XX,XXX_____,________,_XXXXX__,
+	XXXXX___,________,______XX,XXX_____,________,_XXXXX__,
+	XXXXX___,________,______XX,XXX_____,________,_XXXXX__,
+	XXXXX___,________,______XX,XXX_____,________,_XXXXX__,
+	XXXXX___,________,______XX,XXX_____,________,_XXXXX__,
+	XXXXX___,________,______XX,XXX_____,________,_XXXXX__,
+	XXXXXX__,________,______XX,XXXX____,________,_XXXXX__,
+	XXXXXX__,________,_____XXX,XXXX____,________,XXXXXX__,
+	_XXXXXX_,________,_____XXX,XXXXX___,________,XXXXXX__,
+	_XXXXXX_,________,____XXXX,XXXXXX__,_______X,XXXXX___,
+	__XXXXXX,X_______,___XXXXX,__XXXXXX,_____XXX,XXXXX___,
+	__XXXXXX,XXX_____,__XXXXXX,__XXXXXX,XXXXXXXX,XXXX____,
+	___XXXXX,XXXXXXXX,XXXXXXXX,___XXXXX,XXXXXXXX,XXXX____,
+	____XXXX,XXXXXXXX,XXXXXXX_,____XXXX,XXXXXXXX,XXX_____,
+	_____XXX,XXXXXXXX,XXXXXX__,_____XXX,XXXXXXXX,XX______,
+	______XX,XXXXXXXX,XXXXX___,______XX,XXXXXXXX,X_______,
+	_______X,XXXXXXXX,XXXX____,________,XXXXXXX_,________,
+	________,__XXXXXX,XX______,________,________,________,
+	#endif
+	#if 1    //           Pages=6 Segments=30
+	________,________,XXXXXXX_,________,________,________,
+	________,________,XXXXXXXX,________,________,________,
+	________,________,XXXXXXXX,X_______,________,________,
+	________,________,XXXXXXXX,XXX_____,________,________,
+	________,________,XXXXX_XX,XXXX____,________,________,
+	________,________,XXXXX__X,XXXXX___,________,________,
+	________,________,XXXXX___,XXXXXX__,________,________,
+	________,________,XXXXX___,_XXXXXX_,________,________,
+	________,________,XXXXX___,___XXXXX,________,________,
+	________,________,XXXXX___,____XXXX,XX______,________,
+	________,________,XXXXX___,_____XXX,XXX_____,________,
+	________,________,XXXXX___,______XX,XXXX____,________,
+	________,________,XXXXX___,_______X,XXXXX___,________,
+	________,________,XXXXX___,________,_XXXXX__,________,
+	________,________,XXXXX___,________,__XXXXX_,________,
+	________,________,XXXXX___,________,___XXXXX,X_______,
+	________,________,XXXXX___,________,____XXXX,XX______,
+	________,________,XXXXX___,________,_____XXX,XXX_____,
+	________,________,XXXXX___,________,______XX,XXXX____,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	________,________,XXXXX___,________,________,________,
+	________,________,XXXXX___,________,________,________,
+	________,________,XXXXX___,________,________,________,
+	________,________,XXXXX___,________,________,________,
+	________,________,XXXXX___,________,________,________,
+	#endif
+	#if 1    //           Pages=6 Segments=26
+	__XXXXXX,X_______,________,________,________,________,
+	__XXXXXX,________,________,________,________,________,
+	__XXXXXX,________,______XX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXX_,________,______XX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXXX_,________,______XX,XXXXXXXX,XXXXXXXX,XXXXX___,
+	_XXXXX__,________,_______X,XXXXXXXX,XXXXXXXX,XXXXX___,
+	XXXXXX__,________,_______X,XXXXXXXX,XXXXXXXX,XXXXX___,
+	XXXXXX__,________,_______X,XXXXXXXX,XXXXXXXX,XXXXX___,
+	XXXXX___,________,_______X,XXXX____,________,XXXXX___,
+	XXXXX___,________,_______X,XXXX____,________,XXXXX___,
+	XXXXX___,________,_______X,XXXX____,________,XXXXX___,
+	XXXXX___,________,_______X,XXXX____,________,XXXXX___,
+	XXXXX___,________,_______X,XXXX____,________,XXXXX___,
+	XXXXX___,________,_______X,XXXX____,________,XXXXX___,
+	XXXXX___,________,_______X,XXXX____,________,XXXXX___,
+	XXXXXX__,________,______XX,XXXX____,________,XXXXX___,
+	_XXXXX__,________,______XX,XXXX____,________,XXXXX___,
+	_XXXXXX_,________,_____XXX,XXX_____,________,XXXXX___,
+	__XXXXXX,X_______,____XXXX,XXX_____,________,XXXXX___,
+	__XXXXXX,XXX_____,__XXXXXX,XXX_____,________,XXXXX___,
+	___XXXXX,XXXXXXXX,XXXXXXXX,XX______,________,XXXXX___,
+	____XXXX,XXXXXXXX,XXXXXXXX,X_______,________,XXXXX___,
+	_____XXX,XXXXXXXX,XXXXXXXX,X_______,________,XXXXX___,
+	______XX,XXXXXXXX,XXXXXXX_,________,________,XXXXX___,
+	________,XXXXXXXX,XXXXXX__,________,________,XXXXX___,
+	________,___XXXXX,XXX_____,________,________,XXXXX___,
+	#endif
+	#if 1    //           Pages=6 Segments=28
+	________,______XX,XXXXXXXX,XXX_____,________,________,
+	________,__XXXXXX,XXXXXXXX,XXXXXXXX,________,________,
+	_______X,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXX_____,________,
+	______XX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXX___,________,
+	____XXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXX_,________,
+	___XXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,________,
+	__XXXXXX,XXXXX___,______XX,XX___XXX,XXXXXXXX,X_______,
+	__XXXXXX,XX______,______XX,XXX_____,_XXXXXXX,XX______,
+	_XXXXXXX,________,_______X,XXX_____,___XXXXX,XXX_____,
+	_XXXXXX_,________,_______X,XXXX____,_____XXX,XXX_____,
+	XXXXXX__,________,________,XXXX____,______XX,XXXX____,
+	XXXXXX__,________,________,XXXXX___,_______X,XXXXX___,
+	XXXXX___,________,________,XXXXX___,_______X,XXXXX___,
+	XXXXX___,________,________,XXXXX___,________,XXXXX___,
+	XXXXX___,________,________,XXXXX___,________,XXXXX___,
+	XXXXX___,________,________,XXXXX___,________,_XXXXX__,
+	XXXXX___,________,________,XXXXX___,________,_XXXXX__,
+	XXXXXX__,________,_______X,XXXXX___,________,_XXXXX__,
+	_XXXXX__,________,_______X,XXXXX___,________,_XXXXX__,
+	_XXXXXX_,________,______XX,XXXX____,________,_XXXXX__,
+	_XXXXXXX,________,_____XXX,XXXX____,________,_XXXXX__,
+	__XXXXXX,XXX_____,___XXXXX,XXXX____,________,_XXXXX__,
+	___XXXXX,XXXXXXXX,XXXXXXXX,XXX_____,________,XXXXXX__,
+	____XXXX,XXXXXXXX,XXXXXXXX,XX______,________,XXXXXX__,
+	_____XXX,XXXXXXXX,XXXXXXXX,X_______,________,________,
+	______XX,XXXXXXXX,XXXXXXXX,________,________,________,
+	________,XXXXXXXX,XXXXXXX_,________,________,________,
+	________,___XXXXX,XXXX____,________,________,________,
+	#endif
+	#if 1    //           Pages=6 Segments=28
+	________,________,________,________,________,XXXXX___,
+	________,________,________,________,________,XXXXX___,
+	________,________,________,________,________,XXXXX___,
+	_X______,________,________,________,________,XXXXX___,
+	_XXX____,________,________,________,________,XXXXX___,
+	_XXXXX__,________,________,________,________,XXXXX___,
+	_XXXXXXX,________,________,________,________,XXXXX___,
+	_XXXXXXX,XX______,________,________,________,XXXXX___,
+	_XXXXXXX,XXXX____,________,________,________,XXXXX___,
+	_XXXXXXX,XXXXXX__,________,________,________,XXXXX___,
+	___XXXXX,XXXXXXXX,________,________,________,XXXXX___,
+	_____XXX,XXXXXXXX,XX______,________,________,XXXXX___,
+	_______X,XXXXXXXX,XXXX____,________,________,XXXXX___,
+	________,_XXXXXXX,XXXXXX__,________,________,XXXXX___,
+	________,___XXXXX,XXXXXXXX,________,________,XXXXX___,
+	________,_____XXX,XXXXXXXX,XXX_____,________,XXXXX___,
+	________,_______X,XXXXXXXX,XXXXX___,________,XXXXX___,
+	________,________,_XXXXXXX,XXXXXXX_,________,XXXXX___,
+	________,________,___XXXXX,XXXXXXXX,X_______,XXXXX___,
+	________,________,_____XXX,XXXXXXXX,XXX_____,XXXXX___,
+	________,________,_______X,XXXXXXXX,XXXXX___,XXXXX___,
+	________,________,________,_XXXXXXX,XXXXXXX_,XXXXX___,
+	________,________,________,___XXXXX,XXXXXXXX,XXXXX___,
+	________,________,________,_____XXX,XXXXXXXX,XXXXX___,
+	________,________,________,_______X,XXXXXXXX,XXXXX___,
+	________,________,________,________,_XXXXXXX,XXXXX___,
+	________,________,________,________,____XXXX,XXXXX___,
+	________,________,________,________,______XX,XXXXX___,
+	#endif
+	#if 1    //           Pages=6 Segments=28
+	________,_XXXXXXX,X_______,________,________,________,
+	_______X,XXXXXXXX,XXX_____,_______X,XXXXXX__,________,
+	_____XXX,XXXXXXXX,XXXXX___,_____XXX,XXXXXXXX,________,
+	____XXXX,XXXXXXXX,XXXXXX__,____XXXX,XXXXXXXX,X_______,
+	___XXXXX,XXXXXXXX,XXXXXXX_,___XXXXX,XXXXXXXX,XXX_____,
+	__XXXXXX,XXXXXXXX,XXXXXXX_,__XXXXXX,XXXXXXXX,XXX_____,
+	__XXXXXX,XX______,_XXXXXXX,_XXXXXXX,XXXXXXXX,XXXX____,
+	_XXXXXXX,________,___XXXXX,XXXXXXXX,______XX,XXXXX___,
+	_XXXXX__,________,_____XXX,XXXXXXX_,________,XXXXX___,
+	_XXXXX__,________,______XX,XXXXXX__,________,_XXXX___,
+	XXXXX___,________,_______X,XXXXX___,________,_XXXXX__,
+	XXXX____,________,_______X,XXXX____,________,__XXXX__,
+	XXXX____,________,______XX,XXXX____,________,__XXXX__,
+	XXXX____,________,______XX,XXX_____,________,__XXXX__,
+	XXXX____,________,_____XXX,XXX_____,________,__XXXX__,
+	XXXX____,________,_____XXX,XXX_____,________,__XXXX__,
+	XXXX____,________,_____XXX,XX______,________,__XXXX__,
+	XXXXX___,________,____XXXX,XX______,________,_XXXXX__,
+	_XXXX___,________,___XXXXX,XXX_____,________,_XXXX___,
+	_XXXXX__,________,___XXXXX,XXXXX___,________,XXXXX___,
+	_XXXXXX_,________,__XXXXXX,XXXXXXX_,______XX,XXXXX___,
+	__XXXXXX,X_______,XXXXXXXX,_XXXXXXX,XXXXXXXX,XXXX____,
+	___XXXXX,XXXXXXXX,XXXXXXX_,__XXXXXX,XXXXXXXX,XXXX____,
+	___XXXXX,XXXXXXXX,XXXXXX__,___XXXXX,XXXXXXXX,XXX_____,
+	____XXXX,XXXXXXXX,XXXXXX__,____XXXX,XXXXXXXX,XX______,
+	_____XXX,XXXXXXXX,XXXXX___,_____XXX,XXXXXXXX,________,
+	_______X,XXXXXXXX,XXX_____,________,XXXXXX__,________,
+	________,__XXXXXX,X_______,________,________,________,
+	#endif
+	#if 1    //           Pages=6 Segments=28
+	________,________,________,__XXXXXX,XXX_____,________,
+	________,________,_______X,XXXXXXXX,XXXXXX__,________,
+	________,________,______XX,XXXXXXXX,XXXXXXXX,________,
+	________,________,_____XXX,XXXXXXXX,XXXXXXXX,X_______,
+	XXXXXX__,________,____XXXX,XXXXXXXX,XXXXXXXX,XX______,
+	XXXXXX__,________,___XXXXX,XXXXXXXX,XXXXXXXX,XXX_____,
+	XXXXX___,________,__XXXXXX,XXX_____,___XXXXX,XXXX____,
+	XXXXX___,________,__XXXXXX,X_______,______XX,XXXX____,
+	XXXXX___,________,__XXXXXX,________,_______X,XXXXX___,
+	XXXXX___,________,_XXXXXX_,________,________,XXXXX___,
+	XXXXX___,________,_XXXXXX_,________,________,XXXXXX__,
+	XXXXX___,________,_XXXXX__,________,________,_XXXXX__,
+	XXXXX___,________,_XXXXX__,________,________,_XXXXX__,
+	XXXXXX__,________,_XXXXX__,________,________,_XXXXX__,
+	_XXXXX__,________,_XXXXX__,________,________,_XXXXX__,
+	_XXXXX__,________,_XXXXX__,________,________,_XXXXX__,
+	_XXXXXX_,________,_XXXXX__,________,________,XXXXXX__,
+	__XXXXXX,________,__XXXX__,________,________,XXXXXX__,
+	__XXXXXX,X_______,__XXXXX_,________,_______X,XXXXX___,
+	___XXXXX,XXX_____,___XXXX_,________,______XX,XXXXX___,
+	____XXXX,XXXXX___,___XXXXX,________,____XXXX,XXXX____,
+	_____XXX,XXXXXXXX,X___XXXX,________,_XXXXXXX,XXXX____,
+	______XX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXX_____,
+	_______X,XXXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,XX______,
+	________,_XXXXXXX,XXXXXXXX,XXXXXXXX,XXXXXXXX,________,
+	________,___XXXXX,XXXXXXXX,XXXXXXXX,XXXXXXX_,________,
+	________,______XX,XXXXXXXX,XXXXXXXX,XXXX____,________,
+	________,________,___XXXXX,XXXXXXXX,________,________,
+	#endif
+	#if 1    //           Pages=6 Segments=7
+	XXXXXX__,________,________,________,________,________,
+	XXXXXX__,________,________,________,________,________,
+	XXXXXX__,________,________,________,________,________,
+	XXXXXX__,________,________,________,________,________,
+	XXXXXX__,________,________,________,________,________,
+	XXXXXX__,________,________,________,________,________,
+	XXXXXX__,________,________,________,________,________,
+	#endif
+	
+	
+	
+#endif  // Tahoma6	
+	
+#if 1    //     BatteryKorpus      Pages=2 Segments=14
+______XX,XXXXX___,
+______X_,____X___,
+______X_,____X___,
+______X_,____X___,
+______X_,____X___,
+______X_,____X___,
+______X_,____X___,
+______X_,____X___,
+______X_,____X___,
+______X_,____X___,
+______X_,____X___,
+______XX,XXXXX___,
+________,XXX_____,
+________,XXX_____,
+#endif
+#if 1    //      BatteryDelenie      Pages=1 Segments=1
+XXX_X___,
+#endif
+
+};
+
+//void LCD_DispClock()
+
+void LCD_PrintPik(uint8_t Page, uint8_t Segment, enum enPikiNames Pik, enum LCD_PrintType PT ) {
+	//uint8_t KOL=Piki
+	int curS = Segment;
+	
+	for (uint8_t P = 0; P < Piki[Pik].Pages && P + Page <= 7; P++) {
+		LCD_GoTo(Segment, Page + P);
+		for (uint16_t S = Piki[Pik].Pages - P-1; S < Piki[Pik].Segments*Piki[Pik].Pages; S += Piki[Pik].Pages) {
+			curS++;
+			switch (PT)
+			{
+			case LCDpt_NOINV: sendData(PikiData[S + Piki[Pik].FirstByte]); break;
+			case LCDpt_INV: sendData(~PikiData[S + Piki[Pik].FirstByte]); break;
+			case LCDpt_DEL: sendData(0); break;
+			default:
+				break;
+			}
+			
+			
+			//if (Inverse != 1) sendData(PikiData[S + Piki[Pik].FirstByte]); 
+			//else sendData(~PikiData[S + Piki[Pik].FirstByte]); 
+			
+		}
+	}
+}
+
+
 
 void LCD_init(void)
 {
+	
+	for (uint8_t i = 1; i <  sizeof(Piki) / sizeof(*Piki); i++) {
+		Piki[i].FirstByte = Piki[i - 1].Pages *Piki[i - 1].Segments + Piki[i-1].FirstByte;
+	}
+	
 	// Turn display off
 	sendCommand(OLED_DISPLAYOFF);
 
+	
+	
+	//sendCommand(0xC0);
+
+	
 	sendCommand(OLED_SETDISPLAYCLOCKDIV);
 	sendCommand(0x80);
 
@@ -628,30 +1427,44 @@ void LCD_init(void)
 	sendCommand(0x3F);  //128x64
 
 	sendCommand(OLED_SETDISPLAYOFFSET);
-	sendCommand(0x00);
+	sendCommand(0x02);
 
 	sendCommand(OLED_SETSTARTLINE | 0x00);  //0
 
 	// We use internal charge pump
 	sendCommand(OLED_CHARGEPUMP);
 	sendCommand(0x14);
-
-	// Horizontal memory mode
-	sendCommand(OLED_MEMORYMODE);
+//
+//	
+	sendCommand(OLED_MEMORYMODE);// Horizontal addressing mode (A[1:0]=00b) Page addressing mode (A[1:0]=10xb) Vertical addressing mode: (A[1:0]=01b)
 	sendCommand(0x00);
-
+//	//int iii = 0b00000010;
+//	
+//	//sendCommand(0b00000000);
+	
+//	
+	sendCommand(0x21);
+	sendCommand(0x10);
+	sendCommand(0x7E);
+	
+	sendCommand(0x22);
+	sendCommand(0x0);
+	sendCommand(0x7);
+	
+	
 	sendCommand(OLED_SEGREMAP | 0x1);
 
 	sendCommand(OLED_COMSCANDEC);
 
 	sendCommand(OLED_SETCOMPINS);
 	//sendCommand(0x02);//128x32
-	sendCommand(0x12);  //128x64
+	
+	sendCommand(0x12);   //128x64
 
 	// Max contrast
 	sendCommand(OLED_SETCONTRAST);
 	//sendCommand(0x0F);//0xCF
-	sendCommand(0xCF);  //0xCF
+	sendCommand(0xCF);   //0xCF
 
 	sendCommand(OLED_SETPRECHARGE);
 	sendCommand(0xF1);

@@ -82,22 +82,22 @@ void TaskiPoPolkam(void)
 			//pcWriteBuffer = prvWriteNameToBuffer(pcWriteBuffer, pxTaskStatusArray[x].pcTaskName);
 			//const char *Name = pxTaskStatusArray[x].pcTaskName;
 					
-			if(uxArraySize == TaskKolvoWithIDLE){
+			if(uxArraySize == TaskKolvoWithIDLE) {
 				strcpy(Taskos[x].Name, pxTaskStatusArray[x].pcTaskName);
 				Taskos[x].Status = cStatus;
 				Taskos[x].Nomer = pxTaskStatusArray[x].xTaskNumber;
 				Taskos[x].Prioritet = pxTaskStatusArray[x].uxCurrentPriority;
-				Taskos[x].Stack = pxTaskStatusArray[x].usStackHighWaterMark;  //sprintf(,"" // Taskos[0].Name = "NESOVPADAETKOLVO";
+				Taskos[x].Stack = pxTaskStatusArray[x].usStackHighWaterMark;     //sprintf(,"" // Taskos[0].Name = "NESOVPADAETKOLVO";
 			}
-			else{
+			else {
 				strcpy(Taskos[0].Name, "NESOVPADAETKOLVO");
 				Taskos[x].Status = 69;
 				Taskos[x].Nomer = 69;
 				Taskos[x].Prioritet = 69;
 				Taskos[x].Stack = 69;
 			}
-				
-	
+			
+
 			/* Write the rest of the string. */
 			//sprintf(pcWriteBuffer, "\t%c\t%u\t%u\t%u\r\n", cStatus, (unsigned int) pxTaskStatusArray[x].uxCurrentPriority, (unsigned int) pxTaskStatusArray[x].usStackHighWaterMark, (unsigned int) pxTaskStatusArray[x].xTaskNumber);
 			//pcWriteBuffer += strlen(pcWriteBuffer);

@@ -27,6 +27,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */     
 #include "DebuggingRTOS.h"
+#include "WorkWithOLED.h"
+#include "./Modules/RTC/RTClock.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -171,10 +173,39 @@ void StartDefaultTask(void const * argument)
 void FR_DISPLAY(void const * argument)
 {
   /* USER CODE BEGIN FR_DISPLAY */
-  /* Infinite loop */
+	LCD_Clear();
+	/* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  
+//	  LCD_PrintPik(0, 106, PikiBatteryKorp, LCDpt_NOIV);              //                          батарея
+//	  for (int i = 1; i  <= 8; i++) {
+//		  //LCD_Clear();
+//		  
+//		  
+//		  LCD_PrintPik(0, 106 + i * 2, PikiBatteryDelenie, LCDpt_NOIV);
+//		  osDelay(50);
+//		  //LCD_PrintPik(0, 106 + i * 2, PikiBatteryDelenie, DEL);
+//		  
+//	  }
+//	  osDelay(500);
+//	  LCD_PrintPik(0, 106, PikiBatteryKorp, LCDpt_DEL);
+	  LCD_PrintPik(0, 0, PikiBatteryKorp, LCDpt_NOINV);
+	  //osDelay(50);
+    
+	  
+	  RTClockRead();
+	  
+	  	  //LCD_Clear();
+
+	  
+	  //LCD_String("1234567890abcdefghjklmnoprstuvwxyz");
+	  //LCD_GoTo(1, 1);
+	  //LCD_String("12345678901234");
+	  //LCD_GoTo(21, 4);
+	  //LCD_String("X");
+	  //LCD_Num_To_Str(Taskos[1].Stack,3);
+    osDelay(500);
   }
   /* USER CODE END FR_DISPLAY */
 }

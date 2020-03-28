@@ -461,5 +461,8 @@
     <ClInclude Include="C:\Users\Basay\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.0\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h">
       <Filter>Header files\STM32Cube HAL\FREERTOS</Filter>
     </ClInclude>
+    <ClInclude Include="Modules\OLED\WorkWithOLED_pics.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

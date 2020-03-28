@@ -33,7 +33,7 @@
 #include <string.h>
 #include "WorkWithOLED.h"
 #include "./Modules/SD/SD.h"
-#include "./Modules/RTC/RTClock.h"
+
 #include "./Modules/Gradusnik/Gradusnik.h"
 
 
@@ -224,8 +224,8 @@ int main(void)
   GraduskikPin_init();
 	
 //	HAL_Delay(100);
-//	LCD_init();
-//	LCD_Clear();
+	LCD_init();
+	LCD_Clear();
 //	
 //	
 //	LCD_Num_To_Str(23456789, 1);
@@ -234,7 +234,7 @@ int main(void)
 //	LCD_Clear();
 //	LCD_Num_To_Str(23456789, 10);
 	
-#if 0
+#if 1
 	//LCD_String("");
 	//LCD_String("óôõö÷øùúûüýþÿ");
     LCD_GoTo(2, 2);
